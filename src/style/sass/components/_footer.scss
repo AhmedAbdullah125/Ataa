@@ -1,0 +1,192 @@
+footer {
+
+    .content {
+        padding: 0px 0 40px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 60px;
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            max-width: 485px;
+
+            @media screen and (max-width: 600px) {
+                align-items: center;
+            }
+
+            img {
+                height: 108px;
+            }
+
+            p {
+                font-size: 16px;
+                font-weight: 500;
+                margin-bottom: 0;
+                text-align: justify;
+            }
+        }
+
+        .links {
+            max-width: 245px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 29px;
+
+            h3 {
+                font-size: 24px;
+                font-weight: 700;
+                color: $main;
+                font-size: 18px;
+                margin-bottom: 0;
+            }
+
+            .hagez {
+                width: 31px;
+                height: 3px;
+                background-color: $main;
+                border-radius: 5px;
+            }
+
+            ul {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 29px;
+
+                li {
+                    font-size: 14px;
+                    font-weight: 500;
+                    margin-bottom: 0;
+
+                    a:hover {
+                        color: $main;
+                    }
+                }
+            }
+
+        }
+    }
+
+    .lowerFooter {
+        padding: 40px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+
+        @media screen and (max-width: 600px) {
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        a {
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 0;
+            color: #000;
+        }
+    }
+
+    .served {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        justify-content: center;
+        padding: 30px 0;
+        background-color: $main;
+
+        span,
+        i {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 0;
+            color: $white;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    footer {
+        .content {
+            flex-direction: column;
+            align-items: center;
+
+            .links {
+                text-align: center;
+
+                ul {
+                    align-items: center;
+                }
+            }
+        }
+    }
+}
+
+.section-with-yellow-title {
+    padding: 0 0 40px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+
+    .text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+
+        h5 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 0;
+            color:$hover;
+        }
+
+        .hagez {
+            width: 26px;
+            height: 1px;
+            border: 2px solid $hover;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 56px;
+            font-weight: 800;
+            color: $main;
+        }
+
+    }
+
+}
+
+.countries-section {
+    padding: 140px 0;
+    .marq {
+        .part-cont {
+            width: 240px;
+            height: 240px;
+            overflow: hidden;
+            border-radius: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #F5F5F5;
+
+            @media screen and (max-width: 600px) {}
+
+            img {
+                width: 114px;
+                height: 114px;
+            }
+        }
+    }
+}
