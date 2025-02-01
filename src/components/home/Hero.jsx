@@ -85,7 +85,7 @@ export default function Hero() { // Defining the main functional component named
                                     <AvatarCircles className='imgs-row ltr' numPeople={99} avatarUrls={avatars} />
                                     <p>انضم إلى متطوعينا</p>
                                 </div>
-                                <div className="scroll-down-icon"><div className="pointer"></div></div>
+                                <div className="scroll-down-icon" onClick={() => { window.scrollTo({ top: window.innerHeight, behavior: "smooth" }); }}><div className="pointer"></div></div>
                             </div>
 
                         </div>
