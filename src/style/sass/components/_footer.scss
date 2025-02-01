@@ -170,6 +170,9 @@ footer {
 
 .countries-section {
     padding: 140px 0;
+    @media screen and (max-width: 767px) {
+        padding: 56px 0;
+    }
     .marq {
         .part-cont {
             width: 240px;

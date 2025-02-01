@@ -6,7 +6,6 @@
     @media screen and (max-width: 767px) {
         flex-direction: column;
         gap: 40px;
-        margin-bottom: 80px;
     }
 
     .text-sec {
@@ -64,6 +63,7 @@
             font-weight: 500;
             line-height: 45px;
             margin-bottom: 0;
+            text-align: justify;
 
             @media screen and (max-width: 1025px) {
                 font-size: 16px;

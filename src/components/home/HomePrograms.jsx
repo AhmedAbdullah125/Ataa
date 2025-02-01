@@ -2,20 +2,20 @@
 'use client'
 import React, { useState } from 'react'; // Importing React to use JSX syntax and create components.
 import Image from 'next/image';
-import img1 from '/public/about/4.svg'
-import img2 from '/public/about/5.svg'
-import img3 from '/public/about/6.svg'
-import img4 from '/public/about/7.svg'
-import img6 from '/public/about/8.svg'
+import img1 from '/public/programs/1.png'
+import img2 from '/public/programs/2.png'
+import img3 from '/public/programs/3.png'
 import LogoutIcon from '/public/icons/logout.svg';
 import Link from 'next/link';
-
+import { motion } from 'framer-motion';
 export default function HomePrograms() { // Defining the main functional component named 'Footer'.
     let data = [
-        { id: 1, title: 'تنمية المجتمع وتطوير الخدمات', img: img1, rate: 4.2, description: "الإسهام في تحقيق أهداف المجتمع التنموية في المجالات الحيوية و تقديم الخدمات الاجتماعية وتطويرها..." },
-        { id: 2, title: 'مساعدات فردية تلبي الاحتياج', img: img2, rate: 5.0, description: "تعاون المجتمع العقاري بمنصبهم وتطويرهم وتقديم الخدمات الاجتماعية وتطويرها..." },
-        { id: 3, title: 'تطوير الخدمات التي تدربها المجتمع', img: img3, rate: 4.4, description: "تقديم الخدمات الاجتماعية وتطويرها..." },
-        { id: 4, title: 'تطوير الخدمات التي تدربها المجتمع', img: img4, rate: 4.9, description: "تقديم الخدمات الاجتماعية وتطويرها..." },
+        { id: 1, name: "تســـويق مبــــاشر", img: img1, category: "برنامج السلال الغذائية", categId: 2 },
+        { id: 2, name: "تســـويق مبــــاشر", img: img2, category: "البرامج التنموية", categId: 3 },
+        { id: 3, name: "تســـويق مبــــاشر", img: img3, category: "البرامج الصحية", categId: 4 },
+        { id: 4, name: "تســـويق مبــــاشر", img: img1, category: "البرامج الموسمية", categId: 5 },
+        { id: 5, name: "تســـويق مبــــاشر", img: img2, category: "البرامج التعليمية", categId: 6 },
+        { id: 6, name: "تســـويق مبــــاشر", img: img3, category: "البرامج الاجتماعية", categId: 7 },
     ]
     const [activeTab, setActiveTab] = useState(1);
     const tabs = [
@@ -59,6 +59,31 @@ export default function HomePrograms() { // Defining the main functional compone
                             </div>
                         </div>
                         <Link href={"/programs"} className="btn-watch"><span>شهاد الكل</span><Image src={LogoutIcon} alt="logout" /></Link>
+                    </div>
+                    <div className="progs-grid">
+                        {
+                            data.map((item) =>
+                                activeTab === item.categId || activeTab === 1 ?
+                                    <motion.div
+                                        initial={{ opacity: 0, scale: 0.9 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        transition={{ type: "spring", stiffness: 100, damping: 15 }}
+                                        className="prog-item" key={item.id}>
+                                        <div className="prog-img">
+                                            <Image src={item.img} alt="logout" />
+                                            <div className="overlay">
+                                                <span>{item.category}</span>
+                                                <div className="a-cont"><Link href={"#"}><i className="fa-solid fa-arrow-up"></i></Link></div>
+                                            </div>
+                                        </div>
+                                        <div className="prog-info">
+                                            <h3>مشروع</h3>
+                                            <span>{item.name}</span>
+                                        </div>
+                                    </motion.div>
+                                    : null
+                            )
+                        }
                     </div>
                 </div>
             </div>
