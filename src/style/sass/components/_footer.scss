@@ -120,6 +120,7 @@ footer {
 
             .links {
                 text-align: center;
+                align-items: center;
 
                 ul {
                     align-items: center;
@@ -162,6 +163,12 @@ footer {
             font-size: 56px;
             font-weight: 800;
             color: $main;
+            @media screen and (max-width: 1025px) {
+                font-size: 40px;
+            }
+            @media screen and (max-width: 767px) {
+                font-size: 32px;
+            }
         }
 
     }

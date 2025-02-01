@@ -890,6 +890,7 @@ footer .served i {
   }
   footer .content .links {
     text-align: center;
+    align-items: center;
   }
   footer .content .links ul {
     align-items: center;
@@ -927,6 +928,16 @@ footer .served i {
   font-weight: 800;
   color: var(--main-color);
 }
+@media screen and (max-width: 1025px) {
+  .section-with-yellow-title .text h2 {
+    font-size: 40px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .section-with-yellow-title .text h2 {
+    font-size: 32px;
+  }
+}
 
 .countries-section {
   padding: 140px 0;
@@ -956,6 +967,11 @@ footer .served i {
   padding-bottom: 20px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
+@media screen and (max-width: 767px) {
+  .uperHeader .container {
+    padding: 20px 10px;
+  }
+}
 
 .uper-header-cont {
   display: flex;
@@ -974,6 +990,13 @@ footer .served i {
   gap: 20px;
   align-items: center;
 }
+@media screen and (max-width: 767px) {
+  .uper-header-cont .r-side {
+    justify-content: space-between;
+    width: 100%;
+    gap: 5px;
+  }
+}
 .uper-header-cont .r-side h3 {
   font-size: 12px;
   font-weight: 600;
@@ -989,6 +1012,11 @@ footer .served i {
   display: flex;
   gap: 10px;
   align-items: center;
+}
+@media screen and (max-width: 767px) {
+  .uper-header-cont .r-side .email-phone-cont {
+    gap: 5px;
+  }
 }
 .uper-header-cont .r-side .email-phone-cont img {
   width: 13px;
@@ -1384,9 +1412,14 @@ footer .served i {
   background-color: var(--main-color);
   overflow: hidden;
 }
-@media (max-width: 767px) {
+@media screen and (max-width: 1025px) {
   .has-orbits {
     border-radius: 100px;
+  }
+}
+@media (max-width: 767px) {
+  .has-orbits {
+    border-radius: 40px;
   }
 }
 .has-orbits .overlay {
