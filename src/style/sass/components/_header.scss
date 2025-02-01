@@ -13,11 +13,11 @@ body {
 }
 
 header {
-    padding: 20px 0;
     box-shadow: 0px 0px 14px rgba(224, 245, 245, .15);
     background-color: #FFFEFA;
-
     .container {
+        padding: 20px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         position: relative;
     }
 
