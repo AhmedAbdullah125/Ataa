@@ -1590,6 +1590,8 @@ footer .served i {
   justify-content: space-between;
   width: 100%;
   gap: 20px;
+  position: relative;
+  z-index: 2;
 }
 .home-programs-section .filter .tabs-parent {
   overflow: scroll;
@@ -1622,4 +1624,25 @@ footer .served i {
 }
 .home-programs-section .filter .tabs .activeTab span {
   color: var(--white-color);
+}
+.home-programs-section .filter .btn-watch {
+  height: 48px;
+  padding: 0 22px;
+  border-radius: 24px;
+  background-color: var(--black-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 0;
+  color: var(--white-color);
+}
+.home-programs-section .filter .btn-watch span {
+  color: var(--white-color);
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+.home-programs-section .filter .btn-watch img {
+  height: 18px;
 }/*# sourceMappingURL=main.css.map */

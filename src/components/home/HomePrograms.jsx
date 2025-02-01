@@ -58,7 +58,7 @@ export default function HomePrograms() { // Defining the main functional compone
                                 }
                             </div>
                         </div>
-                        <Link href={"/programs"} className="btn"><span>شهاد الكل</span><Image src={LogoutIcon} alt="logout" /></Link>
+                        <Link href={"/programs"} className="btn-watch"><span>شهاد الكل</span><Image src={LogoutIcon} alt="logout" /></Link>
                     </div>
                 </div>
             </div>
