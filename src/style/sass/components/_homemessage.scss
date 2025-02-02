@@ -342,7 +342,7 @@ display: flex;
 }
 
 .progs-grid {
-    // display: grid;
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 30px;
     row-gap: 60px;
@@ -518,6 +518,9 @@ display: flex;
     gap: 25px;
     padding: 10px 15px 0 50px;
     flex-wrap: wrap;
+    @media screen and (max-width: 767px) {
+        padding: 10px 10px 0 10px;
+    }
 
     .date-read {
         display: flex;
