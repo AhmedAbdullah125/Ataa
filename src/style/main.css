@@ -1676,6 +1676,7 @@ footer .served i {
 }
 
 .progs-grid {
+  display: grid;
   grid-template-columns: repeat(3, 1fr);
   -moz-column-gap: 30px;
        column-gap: 30px;
@@ -1845,6 +1846,11 @@ footer .served i {
   gap: 25px;
   padding: 10px 15px 0 50px;
   flex-wrap: wrap;
+}
+@media screen and (max-width: 767px) {
+  .blog-details {
+    padding: 10px 10px 0 10px;
+  }
 }
 .blog-details .date-read {
   display: flex;
