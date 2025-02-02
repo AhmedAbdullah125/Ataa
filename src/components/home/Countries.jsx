@@ -10,7 +10,6 @@ import img5 from '/public/countries/5.png'
 import img6 from '/public/countries/6.png'
 import img7 from '/public/countries/7.png'
 
-
 export default function Countries() { // Defining the main functional component named 'Footer'.
 
     const ReviewCard = ({

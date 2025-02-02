@@ -1,0 +1,106 @@
+.single-blog {
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        @media screen and (max-width: 767px) {
+            gap: 20px;
+            margin-bottom: 40px;
+            
+        }
+    }
+
+    .single-cont {
+        display: flex;
+        flex-direction: column;
+        gap: 70px;
+        margin-bottom: 100px;
+        @media screen and (max-width: 767px) {
+            gap: 40px;
+        }
+        .img-cont {
+            width: 100%;
+            aspect-ratio: 1680/661;
+            overflow: hidden;
+            border-radius: 90px;
+
+            @media screen and (max-width: 767px) {
+                border-radius: 20px;
+            }
+
+            &:hover {
+                img {
+                    transform: scale(1.1);
+                }
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .para {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            @media screen and (max-width: 767px) {
+                gap: 20px;
+            }
+            h2 {
+                font-size: 56px;
+                font-weight: 800;
+                margin-bottom: 0;
+                color: $main;
+
+                @media screen and (max-width: 1025px) {
+                    font-size: 40px;
+                }
+
+                @media screen and (max-width: 767px) {
+                    font-size: 24px;
+                }
+            }
+
+            p {
+                font-size: 18px;
+                font-weight: 500;
+                line-height: 45px;
+                margin-bottom: 0;
+                text-align: justify;
+
+                @media screen and (max-width: 1025px) {
+                    font-size: 16px;
+                    line-height: 32px;
+                }
+
+                @media screen and (max-width: 767px) {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+}
+
+.bead-cramp {
+    p {
+        margin-top: 26px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    p,
+    a {
+        font-size: 16px;
+        font-weight: 400;
+        color: $main;
+
+    }
+
+    .active-link-cramp {
+        color: $hover;
+    }
+}

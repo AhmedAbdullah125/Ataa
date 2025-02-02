@@ -44,7 +44,7 @@ export default function HomeBlogs() { // Defining the main functional component 
                                     </div>
                                     <h2> الأوقاف الخيرية: استثمار مستدام لخدمة المجتمع.</h2>
                                     <p>الأوقاف الخيرية تمثل وسيلة لضمان استدامة الدعم الاجتماعي والاقتصادي عبر أصول تُدار بحكمة، تُوجه عائداتها لتعزيز التعليم، الصحة، والإغاثة...</p>
-                                    <Link href={`/blog/${item.categId}`}><span>قراءة المزيد </span><Image src={LogOutIcon} alt="logout" /></Link>
+                                    <Link href={`/blog?id=${item.id}`}><span>قراءة المزيد </span><Image src={LogOutIcon} alt="logout" /></Link>
                                 </div>
                             </motion.div>
                         )

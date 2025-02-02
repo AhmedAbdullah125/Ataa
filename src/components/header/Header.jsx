@@ -38,7 +38,7 @@ export default function Header() {
             <Link href="/message" className={pathname === '/message' ? 'active' : ''} >الرسالة</Link>
             <Link href="/values" className={pathname === '/values' ? 'active' : ''} >القيم</Link>
             <Link href="/programs" className={pathname === '/programs' ? 'active' : ''}>البرامج الخيرية</Link>
-            <Link href="/blog" className={pathname === '/blog' ? 'active' : ''} >المدونة</Link>
+            <Link href="/blogs" className={pathname === '/blogs' ? 'active' : ''} >المدونة</Link>
           </div>
           <div className="access">
             <Link href="/login" className='book-link-yellow'><Image src={searchIcon} alt="search" /></Link>
@@ -60,7 +60,7 @@ export default function Header() {
               <Link href="/message" onClick={handleClose} >الرسالة</Link>
               <Link href="/values" onClick={handleClose} >القيم</Link>
               <Link href="/programs" onClick={handleClose}>البرامج الخيرية</Link>
-              <Link href="/blog" onClick={handleClose} >المدونة</Link>
+              <Link href="/blogs" onClick={handleClose} >المدونة</Link>
             </div>
           </div>
         </div>
