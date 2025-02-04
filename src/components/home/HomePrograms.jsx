@@ -77,7 +77,7 @@ export default function HomePrograms() { // Defining the main functional compone
                                             <Image src={item.img} alt="logout" />
                                             <div className="overlay">
                                                 <span>{item.category}</span>
-                                                <div className="a-cont"><Link href={"#"}><i className="fa-solid fa-arrow-up"></i></Link></div>
+                                                <div className="a-cont"><Link href={"/program?id=" + item.id} className={"arrow"}><i className="fa-solid fa-arrow-up"></i></Link></div>
                                             </div>
                                         </div>
                                         <div className="prog-info">
@@ -139,7 +139,7 @@ export default function HomePrograms() { // Defining the main functional compone
                                                 <Image src={item.img} alt="logout" />
                                                 <div className="overlay">
                                                     <span>{item.category}</span>
-                                                    <div className="a-cont"><Link href={"#"}><i className="fa-solid fa-arrow-up"></i></Link></div>
+                                                    <div className="a-cont"><Link href={"/program?id=" + item.id} className={"arrow"}><i className="fa-solid fa-arrow-up"></i></Link></div>
                                                 </div>
                                             </div>
                                             <div className="prog-info">

@@ -2140,6 +2140,10 @@ footer .served i {
   color: var(--black-color);
   font-size: 20px;
 }
+.ProgramDetails .share i:hover {
+  background-color: var(--main-hover);
+  color: var(--white-color);
+}
 .ProgramDetails .text-achieved {
   display: flex;
   gap: 45px;
