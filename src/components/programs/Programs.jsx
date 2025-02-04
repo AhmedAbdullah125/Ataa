@@ -1,27 +1,47 @@
 'use client'
-import React, { useState } from 'react'; // Importing React to use JSX syntax and create components.
+import React, { useEffect, useState } from 'react'; // Importing React to use JSX syntax and create components.
 import GreenPageTitle from '@/components/sharing/GreenPageTitle';
 import Image from 'next/image';
-import img1 from '/public/programs/1.png'
-import img2 from '/public/programs/2.png'
-import img3 from '/public/programs/3.png'
 import LogoutIcon from '/public/icons/logout.svg'
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import axios from 'axios';
+import { API_BASE_URL } from '@/lib/apiConfig';
 
 export default function Programs() { // Defining the main functional component named 'Footer'.
-    let data = [
-        { id: 1, name: "تســـويق مبــــاشر", img: img1, category: "برنامج السلال الغذائية", categId: 2 },
-        { id: 2, name: "تســـويق مبــــاشر", img: img2, category: "البرامج التنموية", categId: 3 },
-        { id: 3, name: "تســـويق مبــــاشر", img: img3, category: "البرامج الصحية", categId: 4 },
-        { id: 4, name: "تســـويق مبــــاشر", img: img1, category: "البرامج الموسمية", categId: 5 },
-        { id: 5, name: "تســـويق مبــــاشر", img: img2, category: "البرامج التعليمية", categId: 6 },
-        { id: 6, name: "تســـويق مبــــاشر", img: img3, category: "البرامج الاجتماعية", categId: 7 },
-    ]
-    const [activeTab, setActiveTab] = useState(1);
-    const tabs = [
-        { id: 1, name: "الكل" }, { id: 2, name: "برنامج السلال الغذائية" }, { id: 3, name: "البرامج التنموية" }, { id: 4, name: "البرامج الصحية" }, { id: 5, name: "البرامج الموسمية" }, { id: 6, name: "البرامج التعليمية" }, { id: 7, name: "البرامج الاجتماعية" }
-    ]
+
+    const [activeTab, setActiveTab] = useState(0);
+    const [tabs, setTabs] = useState([])
+    let [programs, setprograms] = useState([]);
+    let [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        setLoading(true)
+        const getPrograms = async () => {
+            try {
+                const response = await axios.get(`${API_BASE_URL}/programs`);
+                let data = response.data.data;
+                setprograms(data)
+                setLoading(false)
+                let tabs = [];
+                for (let i = 0; i < data.length; i++) {
+                    tabs.push({
+                        name: data[i].categoryName,
+                        id: data[i].categoryId
+                    })
+                }
+                setTabs(tabs)
+            } catch (error) {
+                console.error('Error retrieving data:', error);
+                throw new Error('Could not get data');
+                setLoading(false)
+            }
+        };
+        getPrograms();
+
+    }, []);
+    console.log(tabs);
+    
     return (
         <div className="about has-green-title">
             <GreenPageTitle firstPArt={"البرامـــج"} secondPart={"الخيــرية"} thirdPart={" !."} />
@@ -40,6 +60,9 @@ export default function Programs() { // Defining the main functional component n
                     <div className="filter">
                         <div className="tabs-parent">
                             <div className="tabs">
+                                <div className={`tab ${activeTab === 0 ? "activeTab" : ""}`} onClick={() => setActiveTab(0)}>
+                                    <span>الكل</span>
+                                </div>
                                 {
                                     tabs.map((tab) =>
                                         <div className={`tab ${activeTab === tab.id ? "activeTab" : ""}`} onClick={() => setActiveTab(tab.id)} key={tab.id}>
@@ -52,23 +75,23 @@ export default function Programs() { // Defining the main functional component n
                     </div>
                     <div className="progs-grid">
                         {
-                            data.map((item) =>
-                                activeTab === item.categId || activeTab === 1 ?
+                            programs.map((item) =>
+                                activeTab === item.categoryId || activeTab === 0 ?
                                     <motion.div
                                         initial={{ opacity: 0, scale: 0.9 }}
                                         animate={{ opacity: 1, scale: 1 }}
                                         transition={{ type: "spring", stiffness: 100, damping: 15 }}
                                         className="prog-item" key={item.id}>
                                         <div className="prog-img">
-                                            <Image src={item.img} alt="logout" />
+                                            <Image src={item.thumbnail} alt="logout" width={100} height={100} />
                                             <div className="overlay">
-                                                <span>{item.category}</span>
-                                                <div className="a-cont"><Link href={"/program?id=" + item.id} className={"arrow"}><i className="fa-solid fa-arrow-up"></i></Link></div>
+                                                <span>{item.categoryName}</span>
+                                                <div className="a-cont"><Link href={"/program?id=" + item.slug} className={"arrow"}><i className="fa-solid fa-arrow-up"></i></Link></div>
                                             </div>
                                         </div>
                                         <div className="prog-info">
-                                            <h3>مشروع</h3>
-                                            <span>{item.name}</span>
+                                            <h3>{item.name}</h3>
+                                            <span>{item.title}</span>
                                         </div>
                                     </motion.div>
                                     : null

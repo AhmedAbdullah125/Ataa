@@ -4,8 +4,9 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
-export default function ProrgamLikes({data}) { // Defining the main functional component named 'Footer'.
-   
+export default function ProrgamLikes({ data ,categoryId}) { // Defining the main functional component named 'Footer'.
+
+    console.log(data);
 
     return (
         <div className="about has-green-title">
@@ -21,24 +22,25 @@ export default function ProrgamLikes({data}) { // Defining the main functional c
                     <div className="progs-grid">
                         {
                             data.map((item) =>
-
-                                <motion.div
+                                item.categoryId == categoryId ?
+                            <motion.div
                                     initial={{ opacity: 0, scale: 0.9 }}
                                     animate={{ opacity: 1, scale: 1 }}
                                     transition={{ type: "spring", stiffness: 100, damping: 15 }}
                                     className="prog-item" key={item.id}>
                                     <div className="prog-img">
-                                        <Image src={item.img} alt="logout" />
+                                        <Image src={item.thumbnail} alt="logout" width={100} height={100} />
                                         <div className="overlay">
-                                            <span>{item.category}</span>
-                                            <div className="a-cont"><Link href={"/program?id=" + item.id} className={"arrow"}><i className="fa-solid fa-arrow-up"></i></Link></div>
+                                            <span>{item.categoryName}</span>
+                                            <div className="a-cont"><Link href={"/program?id=" + item.slug} className={"arrow"}><i className="fa-solid fa-arrow-up"></i></Link></div>
                                         </div>
                                     </div>
                                     <div className="prog-info">
-                                        <h3>مشروع</h3>
-                                        <span>{item.name}</span>
+                                        <h3>{item.name}</h3>
+                                        <span>{item.title}</span>
                                     </div>
                                 </motion.div>
+                                : null
                             )
                         }
                     </div>

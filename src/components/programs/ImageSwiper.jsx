@@ -25,7 +25,7 @@ export default function ImageSwiper({ data }) {
                     modules={[Autoplay, Navigation, Pagination, Controller]}
                     controller={{ control: bigSwiper }} // Link to big swiper
                 >
-                    {data.imgs.map((item, index) => (
+                    {data.images.map((item, index) => (
                         <SwiperSlide key={index} onClick={() => bigSwiper.slideToLoop(index)}>
                             {/* onClick triggers the big swiper to slide */}
                             <div className="img-cont">
@@ -48,7 +48,7 @@ export default function ImageSwiper({ data }) {
                     modules={[Autoplay, Navigation, Pagination, Controller]}
                     controller={{ control: smallSwiper }} // Link to small swiper
                 >
-                    {data.imgs.map((item, index) => (
+                    {data.images.map((item, index) => (
                         <SwiperSlide key={index}>
                             <div className="img-cont">
                                 <Image src={item} alt={`image-${index}`} width={600} height={400} />

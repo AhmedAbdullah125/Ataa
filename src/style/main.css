@@ -1614,6 +1614,7 @@ footer .served i {
   align-items: center;
   gap: 2px;
   flex-wrap: nowrap;
+  cursor: pointer;
 }
 .filter .tabs .activeTab {
   background-color: var(--main-hover);
@@ -1709,6 +1710,7 @@ footer .served i {
 @media screen and (max-width: 767px) {
   .prog-item .prog-img {
     border-radius: 30px;
+    overflow: hidden;
   }
 }
 .prog-item .prog-img:hover img {

@@ -7,6 +7,9 @@ import img3 from '/public/blogs/3.png'
 import { motion } from 'framer-motion';
 import LogOutIcon from '/public/icons/logoutgreen.svg';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { API_BASE_URL } from '@/lib/apiConfig';
 
 
 export default function HomeBlogs() { // Defining the main functional component named 'Footer'.
@@ -16,6 +19,27 @@ export default function HomeBlogs() { // Defining the main functional component 
         { id: 3, name: "تســـويق مبــــاشر", img: img3, category: "البرامج الصحية", categId: 4 },
         
     ]
+    let [blogs, setBlogs] = useState([]);
+    let [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        setLoading(true)
+        const getBlogs = async () => {
+            try {
+                const response = await axios.get(`${API_BASE_URL}/blogs`);
+                let data = response.data.data;
+                setBlogs(data)
+                setLoading(false)
+               
+            } catch (error) {
+                console.error('Error retrieving data:', error);
+                throw new Error('Could not get data');
+                setLoading(false)
+            }
+        };
+        getBlogs();
+
+    }, []);
     return (
         <div className="container m-auto">
             <section className='section-with-yellow-title'>
@@ -26,7 +50,7 @@ export default function HomeBlogs() { // Defining the main functional component 
                 </div>
                 <div className="progs-grid">
                     {
-                        data.map((item) =>
+                        blogs.slice(0, 6).map((item) =>
 
                             <motion.div
                                 initial={{ opacity: 0, scale: 0.9 }}
@@ -34,17 +58,17 @@ export default function HomeBlogs() { // Defining the main functional component 
                                 transition={{ type: "spring", stiffness: 100, damping: 15 }}
                                 className="prog-item" key={item.id}>
                                 <div className="prog-img">
-                                    <Image src={item.img} alt="logout" />
+                                    <Image src={item.image} alt={item.metaTitle} width={100} height={100} />
 
                                 </div>
                                 <div className="blog-details">
                                     <div className="date-read">
-                                        <span>21 نوفمبر 2024</span><div className="bullet"></div><span>4 دقائق قراءة</span><div className="bullet"></div><span>510<i className="fa-solid fa-eye"></i></span>
+                                        <span>21 نوفمبر 2024</span><div className="bullet"></div><span>{item.timeReading} دقائق قراءة</span><div className="bullet"></div><span>{item.view|| 0}<i className="fa-solid fa-eye"></i></span>
 
                                     </div>
-                                    <h2> الأوقاف الخيرية: استثمار مستدام لخدمة المجتمع.</h2>
-                                    <p>الأوقاف الخيرية تمثل وسيلة لضمان استدامة الدعم الاجتماعي والاقتصادي عبر أصول تُدار بحكمة، تُوجه عائداتها لتعزيز التعليم، الصحة، والإغاثة...</p>
-                                    <Link href={`/blog?id=${item.id}`}><span>قراءة المزيد </span><Image src={LogOutIcon} alt="logout" /></Link>
+                                    <h2>{item.name}</h2>
+                                    <p>{item.description}</p>
+                                    <Link href={`/blog?id=${item.slug}`}><span>قراءة المزيد </span><Image src={LogOutIcon} alt="logout" /></Link>
                                 </div>
                             </motion.div>
                         )
