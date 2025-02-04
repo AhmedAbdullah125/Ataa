@@ -1130,7 +1130,7 @@ footer .served i {
   text-align: center;
 }
 
-.Hero .swiper-button-next, .Hero .swiper-button-prev {
+.ataa-custom-slider .swiper-button-next, .ataa-custom-slider .swiper-button-prev {
   color: var(--white-color);
   background-color: rgba(255, 255, 255, 0.1);
   width: 45px;
@@ -1141,26 +1141,26 @@ footer .served i {
   justify-content: center;
   font-size: 13px;
 }
-.Hero .swiper-button-next::after, .Hero .swiper-button-prev::after {
+.ataa-custom-slider .swiper-button-next::after, .ataa-custom-slider .swiper-button-prev::after {
   font-size: 14px;
 }
 @media (max-width: 767px) {
-  .Hero .swiper-button-next, .Hero .swiper-button-prev {
+  .ataa-custom-slider .swiper-button-next, .ataa-custom-slider .swiper-button-prev {
     width: 30px;
     height: 30px;
   }
 }
-.Hero .swiper-pagination-bullet {
+.ataa-custom-slider .swiper-pagination-bullet {
   width: 6px;
   height: 6px;
   background-color: #D9D9D9;
   opacity: 1;
 }
-.Hero .swiper-pagination-bullet-active {
+.ataa-custom-slider .swiper-pagination-bullet-active {
   width: 10px;
   height: 10px;
 }
-.Hero .scroll-down-icon {
+.ataa-custom-slider .scroll-down-icon {
   width: 18px;
   height: 25px;
   border-radius: 9px;
@@ -1168,7 +1168,7 @@ footer .served i {
   position: relative;
   cursor: pointer;
 }
-.Hero .scroll-down-icon .pointer {
+.ataa-custom-slider .scroll-down-icon .pointer {
   position: absolute;
   top: 2px;
   left: 50%;
@@ -1190,7 +1190,7 @@ footer .served i {
     top: 2px;
   }
 }
-.Hero .swiper-horizontal > .swiper-pagination-bullets, .Hero .swiper-pagination-bullets.swiper-pagination-horizontal {
+.ataa-custom-slider .swiper-horizontal > .swiper-pagination-bullets, .ataa-custom-slider .swiper-pagination-bullets.swiper-pagination-horizontal {
   bottom: 55px;
 }
 
@@ -2016,4 +2016,227 @@ footer .served i {
 }
 .bead-cramp .active-link-cramp {
   color: var(--main-hover);
+}
+
+.img-swipers {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+  height: 700px;
+  border-radius: 40px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+@media screen and (max-width: 1025px) {
+  .img-swipers {
+    height: 500px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .img-swipers {
+    height: 300px;
+    border-radius: 20px;
+    gap: 10px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .img-swipers {
+    height: 300px;
+  }
+}
+.img-swipers .big-swiper {
+  width: calc(75% - 10px);
+  height: 100%;
+}
+@media screen and (max-width: 767px) {
+  .img-swipers .big-swiper {
+    width: 100%;
+  }
+}
+.img-swipers .swiper {
+  width: 100%;
+  height: 100%;
+}
+.img-swipers .small-swiper {
+  width: calc(25% - 10px);
+  height: 700px;
+  /* Ensure fixed height */
+  overflow: hidden;
+}
+@media screen and (max-width: 1025px) {
+  .img-swipers .small-swiper {
+    height: 500px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .img-swipers .small-swiper {
+    display: none;
+  }
+}
+.img-swipers .small-swiper .swiper-container,
+.img-swipers .small-swiper .swiper-wrapper {
+  height: 100%;
+  /* Make sure the Swiper fits within the container */
+}
+.img-swipers .small-swiper .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.img-swipers .img-cont {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.img-swipers .img-cont img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.proram-wraper {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.ProgramDetails .prog-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 45px;
+}
+.ProgramDetails .titles {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.ProgramDetails .titles h5 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+.ProgramDetails .titles h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--main-color);
+  margin-bottom: 0;
+}
+.ProgramDetails .share {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.ProgramDetails .share i {
+  height: 65px;
+  width: 65px;
+  border-radius: 50%;
+  background-color: #F4F4F4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--black-color);
+  font-size: 20px;
+}
+.ProgramDetails .text-achieved {
+  display: flex;
+  gap: 45px;
+  margin-bottom: 30px;
+}
+@media screen and (max-width: 767px) {
+  .ProgramDetails .text-achieved {
+    flex-direction: column-reverse;
+  }
+}
+.ProgramDetails .text-achieved .text {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.ProgramDetails .text-achieved .text p {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 45px;
+  margin-bottom: 0;
+}
+.ProgramDetails .text-achieved .text h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--main-hover);
+}
+.ProgramDetails .text-achieved .text .para-cont {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.ProgramDetails .text-achieved .achived {
+  padding: 47px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  background-color: #F5F5F5;
+  border-radius: 40px;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 25%;
+  flex-shrink: 0;
+}
+@media screen and (max-width: 767px) {
+  .ProgramDetails .text-achieved .achived {
+    width: 100%;
+  }
+}
+.ProgramDetails .text-achieved .achived .cont-progress {
+  display: flex;
+  flex-direction: column;
+}
+.ProgramDetails .text-achieved .achived .cont-progress h4 {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--main-color);
+  margin-bottom: 4px;
+}
+.ProgramDetails .text-achieved .achived .cont-progress span {
+  font-size: 10px;
+  font-weight: 400;
+  margin-bottom: 14px;
+}
+.ProgramDetails .text-achieved .achived .cont-progress .progress-bar-cont {
+  width: 100%;
+  height: 3px;
+  background-color: rgba(26, 171, 168, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+.ProgramDetails .text-achieved .achived .cont-progress .progress-bar-cont .progress-achived {
+  border-radius: 3px;
+  height: 3px;
+  background-color: var(--main-color);
+  border-radius: 10px;
+}
+.ProgramDetails .text-achieved .achived .cont-progress h6 {
+  font-size: 12px;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+.ProgramDetails .text-achieved .achived .donate-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  width: 100%;
+  gap: 10px;
+  border-radius: 40px;
+  background-color: var(--main-color);
+}
+.ProgramDetails .text-achieved .achived .donate-link span {
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--white-color);
+}
+.ProgramDetails .text-achieved .achived .donate-link img {
+  height: 16px;
 }/*# sourceMappingURL=main.css.map */

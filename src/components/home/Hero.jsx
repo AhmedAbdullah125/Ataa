@@ -41,7 +41,7 @@ export default function Hero() { // Defining the main functional component named
 
 
     return (
-        <section className='Hero'>
+        <section className='Hero ataa-custom-slider'>
             <Swiper
                 navigation
                 pagination={{ type: "bullets", clickable: true }}
