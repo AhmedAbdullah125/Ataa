@@ -42,7 +42,7 @@ export default function Header() {
           </div>
           <div className="access">
             <Link href="/login" className='book-link-yellow'><Image src={searchIcon} alt="search" /></Link>
-            <Link href="/login" className='book-link'><span>اتصل بنا</span><Image src={logoutIcon} alt="search" /></Link>
+            <Link href="/contact" className='book-link'><span>اتصل بنا</span><Image src={logoutIcon} alt="search" /></Link>
           </div>
           <Menu className='menu-bars' onClick={() => {
             document.querySelector('html').style.overflowY = 'hidden';

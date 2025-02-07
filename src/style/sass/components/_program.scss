@@ -3,7 +3,7 @@
     align-items: flex-start;
     gap: 20px;
     width: 100%;
-    height: 700px;
+    height: 600px;
     border-radius: 40px;
     overflow: hidden;
     margin-bottom: 15px;
@@ -40,7 +40,7 @@
 
     .small-swiper {
         width: calc(25% - 10px);
-        height: 700px;
+        height: 600px;
         /* Ensure fixed height */
         overflow: hidden;
 
@@ -122,7 +122,33 @@
         display: flex;
         align-items: center;
         gap: 5px;
-
+        .love-div{
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            min-width: 65px;
+            background-color: #F4F4F4;
+            border-radius: 33px;
+            overflow: hidden;
+            &:hover{
+                background-color: $hover;
+                i{
+                    background-color: $hover;
+                    
+                }
+            }
+            span{
+                font-size: 20px;
+                font-weight: 600;
+                height: 65px;
+                width: 35px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: $black;
+                
+            }
+        }
         i {
             height: 65px;
             width: 65px;

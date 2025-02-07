@@ -2025,7 +2025,7 @@ footer .served i {
   align-items: flex-start;
   gap: 20px;
   width: 100%;
-  height: 700px;
+  height: 600px;
   border-radius: 40px;
   overflow: hidden;
   margin-bottom: 15px;
@@ -2062,7 +2062,7 @@ footer .served i {
 }
 .img-swipers .small-swiper {
   width: calc(25% - 10px);
-  height: 700px;
+  height: 600px;
   /* Ensure fixed height */
   overflow: hidden;
 }
@@ -2130,6 +2130,31 @@ footer .served i {
   display: flex;
   align-items: center;
   gap: 5px;
+}
+.ProgramDetails .share .love-div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 65px;
+  background-color: #F4F4F4;
+  border-radius: 33px;
+  overflow: hidden;
+}
+.ProgramDetails .share .love-div:hover {
+  background-color: var(--main-hover);
+}
+.ProgramDetails .share .love-div:hover i {
+  background-color: var(--main-hover);
+}
+.ProgramDetails .share .love-div span {
+  font-size: 20px;
+  font-weight: 600;
+  height: 65px;
+  width: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--black-color);
 }
 .ProgramDetails .share i {
   height: 65px;
@@ -2245,4 +2270,67 @@ footer .served i {
 }
 .ProgramDetails .text-achieved .achived .donate-link img {
   height: 16px;
+}
+
+.contact-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+@media screen and (max-width: 767px) {
+  .contact-form {
+    margin-top: 20px;
+  }
+}
+.contact-form .name-email-cont {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+@media screen and (max-width: 767px) {
+  .contact-form .name-email-cont {
+    flex-direction: column;
+  }
+}
+.contact-form input, .contact-form textarea {
+  padding: 0 20px;
+  width: 100%;
+  font-size: 12px;
+  font-weight: 700;
+  height: 55px;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: none !important;
+  background-color: #F6F6F6;
+  color: var(--black-color);
+}
+.contact-form input {
+  display: flex;
+  align-items: center;
+}
+.contact-form textarea {
+  min-height: 138px;
+  padding: 10px 20px;
+}
+.contact-form button {
+  height: 48px;
+  border-radius: 30px;
+  background-color: var(--main-hover);
+  color: var(--black-color);
+  font-size: 12px;
+  font-weight: 700;
+  width: -moz-fit-content;
+  width: fit-content;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s ease-in-out;
+}
+.contact-form button:hover {
+  background-color: var(--main-color);
+  color: var(--white-color);
 }/*# sourceMappingURL=main.css.map */

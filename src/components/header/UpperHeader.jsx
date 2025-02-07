@@ -1,11 +1,37 @@
 'use client';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import emailIcon from '/public/icons/email.svg';
 import phoneIcon from '/public/icons/phone.svg';
 import Link from 'next/link';
+import axios from 'axios';
+import { API_BASE_URL } from '@/lib/apiConfig';
 export default function Header() {
+    // const [data, setData] = useState([]);
+    // const [contact, setContact] = useState([]);
+    // const [loading, setLoading] = useState(true);
 
+    // useEffect(() => {
+    //     setLoading(true)
+    //     const getData = async () => {
+    //         try {
+    //             const response = await axios.get(`${API_BASE_URL}/social-media`);
+    //             const responseContact = await axios.get(`${API_BASE_URL}/contacts`);
+    //             let data = response.data.data;
+    //             let dataContact = responseContact.data.data;
+    //             setData(data)
+    //             setContact(dataContact)
+    //             setLoading(false)
+    //         } catch (error) {
+    //             console.error('Error retrieving data:', error);
+    //             throw new Error('Could not get data');
+    //             setLoading(false)
+    //         }
+    //     };
+    //     getData();
+    // }, []);
+    // console.log(data);
+    
 
     return (
         <div className="uperHeader">

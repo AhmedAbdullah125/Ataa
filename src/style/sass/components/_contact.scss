@@ -1,0 +1,58 @@
+.contact-form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    @media screen and (max-width: 767px) {
+        margin-top: 20px;
+    }
+    .name-email-cont{
+        display: flex;
+        gap: 20px;
+        width: 100%;
+
+        @media screen and (max-width: 767px) {
+            flex-direction: column;
+        }
+    }
+    input , textarea{
+        padding: 0 20px;
+        width: 100%;
+        font-size: 12px;
+        font-weight: 700;
+        height: 55px;
+        border-radius: 30px;
+        overflow: hidden;
+        box-shadow: none !important;
+        background-color: #F6F6F6;
+        color: $black;
+    }
+    input{
+        display: flex;
+        align-items: center;
+    }
+    textarea{
+        min-height: 138px;
+        padding: 10px 20px;
+    }
+    button{
+        height: 48px;
+        border-radius: 30px;
+        background-color: $hover;
+        color: $black;
+        font-size: 12px;
+        font-weight: 700;
+        width: fit-content;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        transition: all 0.3s ease-in-out;
+        &:hover{
+            background-color: $main;
+            color: $white;
+        }
+    }
+}
