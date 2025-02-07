@@ -80,7 +80,7 @@ export default function Footer() { // Defining the main functional component nam
 
                             </div>
                             <div className="lowerFooter">
-                                <Link scroll={true} href={"#"}>الشروط والاحكام</Link>
+                                <Link scroll={true} href={"/terms"}>الشروط والاحكام</Link>
                                 <div className="social-links-global">
                                     {
                                         data.map((item, index) => (
@@ -88,7 +88,7 @@ export default function Footer() { // Defining the main functional component nam
                                         ))
                                     }
                                 </div>
-                                <Link scroll={true} href={"#"}>الشروط والاحكام</Link>
+                                <Link scroll={true} href={"/policy"}>سياسة الخصوصية</Link>
                             </div>
                         </div>
                     </>
