@@ -35,7 +35,7 @@ export default function HomeValues() { // Defining the main functional component
                                 )
                             }
                         </div>
-                        <Link href={'/about'}>اقــــرأ المزيد<Image src={logoutIcon} alt="logout" /></Link>
+                        <Link scroll={true} href={'/about'}>اقــــرأ المزيد<Image src={logoutIcon} alt="logout" /></Link>
                     </div>
                     <div className="img-sec">
                         <Image src={img} alt="logout" width={600} height={600} />

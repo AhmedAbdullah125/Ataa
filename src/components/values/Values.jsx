@@ -56,7 +56,7 @@ export default function Values() { // Defining the main functional component nam
                     </Marquee>
                 </div>
             </div>
-            <Link href={'/programs'} className='greenTitled-link'><span>شاهد البرامج الخيرية الان</span><Image src={logoutIcon} alt="arrow" /></Link>
+            <Link scroll={true} href={'/programs'} className='greenTitled-link'><span>شاهد البرامج الخيرية الان</span><Image src={logoutIcon} alt="arrow" /></Link>
 
         </div>
     )

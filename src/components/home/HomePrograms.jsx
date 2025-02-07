@@ -89,7 +89,7 @@ export default function HomePrograms() { // Defining the main functional compone
                                         }
                                     </div>
                                 </div>
-                                <Link href={"/programs"} className="btn-watch"><span>شهاد الكل</span><Image src={LogoutIcon} alt="logout" /></Link>
+                                <Link scroll={true} href={"/programs"} className="btn-watch"><span>شهاد الكل</span><Image src={LogoutIcon} alt="logout" /></Link>
                             </div>
                             <div className="md:grid progs-grid hidden">
                                 {
@@ -104,7 +104,7 @@ export default function HomePrograms() { // Defining the main functional compone
                                                     <Image src={item.thumbnail} alt="logout" width={100} height={100} />
                                                     <div className="overlay">
                                                         <span>{item.categoryName}</span>
-                                                        <div className="a-cont"><Link href={"/program?id=" + item.slug} className={"arrow"}><i className="fa-solid fa-arrow-up"></i></Link></div>
+                                                        <div className="a-cont"><Link scroll={true} href={"/program?id=" + item.slug} className={"arrow"}><i className="fa-solid fa-arrow-up"></i></Link></div>
                                                     </div>
                                                 </div>
                                                 <div className="prog-info">

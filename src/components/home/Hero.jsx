@@ -94,7 +94,7 @@ export default function Hero() { // Defining the main functional component named
                                                 <h3>{slider.title}</h3>
                                                 <h2>{slider.text}</h2>
                                                 <p>{slider.description}</p>
-                                                <Link href="/programs" className='watch-link'><span>شاهد البرامج الخيرية الان</span><Image src={logoutImage} alt="arrow" width={20} height={20} /></Link>
+                                                <Link scroll={true} href="/programs" className='watch-link'><span>شاهد البرامج الخيرية الان</span><Image src={logoutImage} alt="arrow" width={20} height={20} /></Link>
                                                 <div className="volun">
                                                     <AvatarCircles className='imgs-row ltr' numPeople={99} avatarUrls={avatars} />
                                                     <p>انضم إلى متطوعينا</p>

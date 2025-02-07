@@ -22,7 +22,7 @@ export default function HomeVision() { // Defining the main functional component
                         </div>
                         <h2>مرجعيــة وقـفية مبنيــة على أسس شرعية ومهنيـــة.</h2>
                         <p>مؤسسة وقفية عريقة بأدوات معاصرة ذات مرجعية في كل ما يتعلق باللأوقاف مبنية على أسس شرعية وأصول مهنية مؤسسية...</p>
-                        <Link href={'/vision'}>اقــــرأ المزيد<Image src={logoutIcon} alt="logout" /></Link>
+                        <Link scroll={true} href={'/vision'}>اقــــرأ المزيد<Image src={logoutIcon} alt="logout" /></Link>
                     </div>
 
                 </div>

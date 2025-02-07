@@ -19,7 +19,7 @@ export default function HomeAbout() { // Defining the main functional component 
                         </div>
                         <h2>تطويــر واستشــارات الأوقاف بأعلـــى المعـــايير المهنية.</h2>
                         <p>مؤسسة العطاء والتنمية الوقفية مؤسسة لا ربحية تعمل في مجال إدارة وتطوير واستشارات الأوقاف ، للقائمين عليها خبرة في هذا المجال تمتد لسنوات عديدة ، تحقق خلالها ولله الحمد نجاحات متميزة في مجال تمكين الواقفين من الاستفادة القصوى من أوقافهم...</p>
-                        <Link href={'/about'}>اقــــرأ المزيد<Image src={logoutIcon} alt="logout" /></Link>
+                        <Link scroll={true} href={'/about'}>اقــــرأ المزيد<Image src={logoutIcon} alt="logout" /></Link>
                     </div>
                     <div className="img-sec">
                         <Image src={img} alt="logout" width={600} height={600} />

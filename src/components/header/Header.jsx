@@ -39,20 +39,20 @@ export default function Header() {
       <header className={`header ${isFixed ? 'fixed-header' : ''} `}>
         <div className="X-overlay hidden" onClick={handleClose}></div>
         <div className="container m-auto flex items-center gap-2 justify-between">
-          <Link href="/"> <Image src={logo} alt="logo" className="logo-img" /></Link>
+          <Link scroll={true} href="/"> <Image src={logo} alt="logo" className="logo-img" /></Link>
 
           <div className="links">
-            <Link href="/" className={pathname === '/' || pathname === '' ? 'active' : ''}>الرئيسية</Link>
-            <Link href="/about" className={pathname === '/about' ? 'active' : ''}>من نحــن!</Link>
-            <Link href="/vision" className={pathname === '/vision' ? 'active' : ''}>الرؤية</Link>
-            <Link href="/message" className={pathname === '/message' ? 'active' : ''} >الرسالة</Link>
-            <Link href="/values" className={pathname === '/values' ? 'active' : ''} >القيم</Link>
-            <Link href="/programs" className={pathname === '/programs' ? 'active' : ''}>البرامج الخيرية</Link>
-            <Link href="/blogs" className={pathname === '/blogs' ? 'active' : ''} >المدونة</Link>
+            <Link scroll={true} href="/" className={pathname === '/' || pathname === '' ? 'active' : ''}>الرئيسية</Link>
+            <Link scroll={true} href="/about" className={pathname === '/about' ? 'active' : ''}>من نحــن!</Link>
+            <Link scroll={true} href="/vision" className={pathname === '/vision' ? 'active' : ''}>الرؤية</Link>
+            <Link scroll={true} href="/message" className={pathname === '/message' ? 'active' : ''} >الرسالة</Link>
+            <Link scroll={true} href="/values" className={pathname === '/values' ? 'active' : ''} >القيم</Link>
+            <Link scroll={true} href="/programs" className={pathname === '/programs' ? 'active' : ''}>البرامج الخيرية</Link>
+            <Link scroll={true} href="/blogs" className={pathname === '/blogs' ? 'active' : ''} >المدونة</Link>
           </div>
           <div className="access">
-            <Link href="/login" className='book-link-yellow'><Image src={searchIcon} alt="search" /></Link>
-            <Link href="/contact" className='book-link'><span>اتصل بنا</span><Image src={logoutIcon} alt="search" /></Link>
+            <Link scroll={true} href="/login" className='book-link-yellow'><Image src={searchIcon} alt="search" /></Link>
+            <Link scroll={true} href="/contact" className='book-link'><span>اتصل بنا</span><Image src={logoutIcon} alt="search" /></Link>
           </div>
           <Menu className='menu-bars' onClick={() => {
             document.querySelector('html').style.overflowY = 'hidden';
@@ -64,13 +64,13 @@ export default function Header() {
           <X className='menu-bars-X hidden' onClick={handleClose} />
           <div className="side-menu" onClick={handleClose}>
             <div className="links" onClick={handleClose} >
-              <Link href="/" onClick={handleClose}>الرئيسية</Link>
-              <Link href="/about" onClick={handleClose}>من نحــن!</Link>
-              <Link href="/vision" onClick={handleClose}>الرؤية</Link>
-              <Link href="/message" onClick={handleClose} >الرسالة</Link>
-              <Link href="/values" onClick={handleClose} >القيم</Link>
-              <Link href="/programs" onClick={handleClose}>البرامج الخيرية</Link>
-              <Link href="/blogs" onClick={handleClose} >المدونة</Link>
+              <Link scroll={true} href="/" onClick={handleClose}>الرئيسية</Link>
+              <Link scroll={true} href="/about" onClick={handleClose}>من نحــن!</Link>
+              <Link scroll={true} href="/vision" onClick={handleClose}>الرؤية</Link>
+              <Link scroll={true} href="/message" onClick={handleClose} >الرسالة</Link>
+              <Link scroll={true} href="/values" onClick={handleClose} >القيم</Link>
+              <Link scroll={true} href="/programs" onClick={handleClose}>البرامج الخيرية</Link>
+              <Link scroll={true} href="/blogs" onClick={handleClose} >المدونة</Link>
             </div>
           </div>
         </div>

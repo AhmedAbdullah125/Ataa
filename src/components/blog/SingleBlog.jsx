@@ -101,7 +101,7 @@ export default function Blog() { // Defining the main functional component named
                                                 </div>
                                                 <h2>{item.name}</h2>
                                                 <p>{item.description}</p>
-                                                <Link href={`/blog?id=${item.slug}`}><span>قراءة المزيد </span><Image src={LogOutIcon} alt="logout" /></Link>
+                                                <Link scroll={true} href={`/blog?id=${item.slug}`}><span>قراءة المزيد </span><Image src={LogOutIcon} alt="logout" /></Link>
                                             </div>
                                         </motion.div>
                                     )

@@ -50,7 +50,7 @@ export default function Message() { // Defining the main functional component na
                 </div>
 
             </div>
-            <Link href={'/programs'} className='greenTitled-link'><span>شاهد البرامج الخيرية الان</span><Image src={logoutIcon} alt="arrow" /></Link>
+            <Link scroll={true} href={'/programs'} className='greenTitled-link'><span>شاهد البرامج الخيرية الان</span><Image src={logoutIcon} alt="arrow" /></Link>
         </div>
     )
 }

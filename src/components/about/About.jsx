@@ -19,7 +19,7 @@ export default function About() { // Defining the main functional component name
                 <p className='greenTitled-p'>
                     مؤسسة العطاء والتنمية الوقفية مؤسسة ال ربحية تعمل في مجال إدارة وتطوير واستشارات الأوقاف ، للقائمين عليها خبرة في هذا المجال تمتد لسنوات عديدة ، تحقق خلالها وهلل الحمد نجاحات متميزة في مجال تمكين الواقفين من الاستفادة القصوى من أوقافهم وتوجيه ريعها فيما خصص من أجله من خلال آليات احترافية للإدارة والتطوير.
                 </p>
-                <Link href={'/programs'} className='greenTitled-link'><span>شاهد البرامج الخيرية الان</span><Image src={logoutIcon} alt="arrow" /></Link>
+                <Link scroll={true} href={'/programs'} className='greenTitled-link'><span>شاهد البرامج الخيرية الان</span><Image src={logoutIcon} alt="arrow" /></Link>
 
             </section>
         </div>

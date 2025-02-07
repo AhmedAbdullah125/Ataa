@@ -39,12 +39,12 @@ export default function Header() {
                     <div className="r-side">
                         <h3>مرحبا بكم.</h3>
                         <div className="bullet"></div>
-                        <Link href="mailto:info@datareality.sa" className="email-phone-cont">
+                        <Link scroll={true} href="mailto:info@datareality.sa" className="email-phone-cont">
                             <Image src={emailIcon} alt="email" />
                             <p>info@datareality.sa</p>
                         </Link>
                         <div className="bullet"></div>
-                        <Link href="tel:+966504154883" className="email-phone-cont">
+                        <Link scroll={true} href="tel:+966504154883" className="email-phone-cont">
                             <Image src={phoneIcon} alt="phone" />
                             <p>+966 50 415 4883</p>
                         </Link>
@@ -53,7 +53,7 @@ export default function Header() {
                         {
                             loading ? null :
                                 data.map((item , index) => (
-                                    <Link href={item.value} key={index}><i className={`fa-brands fa-${item.type}`}></i></Link>
+                                    <Link scroll={true} href={item.value} key={index}><i className={`fa-brands fa-${item.type}`}></i></Link>
                                 ))
                         }
                     </div>

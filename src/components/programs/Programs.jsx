@@ -85,7 +85,7 @@ export default function Programs() { // Defining the main functional component n
                                             <Image src={item.thumbnail} alt="logout" width={100} height={100} />
                                             <div className="overlay">
                                                 <span>{item.categoryName}</span>
-                                                <div className="a-cont"><Link href={"/program?id=" + item.slug} className={"arrow"}><i className="fa-solid fa-arrow-up"></i></Link></div>
+                                                <div className="a-cont"><Link scroll={true} href={"/program?id=" + item.slug} className={"arrow"}><i className="fa-solid fa-arrow-up"></i></Link></div>
                                             </div>
                                         </div>
                                         <div className="prog-info">
