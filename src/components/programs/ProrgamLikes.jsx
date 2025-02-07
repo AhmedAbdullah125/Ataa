@@ -5,9 +5,6 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 export default function ProrgamLikes({ data ,categoryId}) { // Defining the main functional component named 'Footer'.
-
-    console.log(data);
-
     return (
         <div className="about has-green-title">
             <section className='section-with-yellow-title'>

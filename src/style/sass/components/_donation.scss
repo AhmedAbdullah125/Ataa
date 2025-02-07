@@ -1,0 +1,54 @@
+.donation-page{
+    min-height: 100px;
+    background-color: #FFF8E5;
+    padding: 40px 0;
+    .donation-form{
+        background-color: $white;
+        padding: 40px;
+        border-radius: 40px;
+        .details{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 35px;
+            @media screen and (max-width: 767px) {
+                flex-direction: column;
+                gap: 20px;
+                
+            }
+            .img-cont{
+                width: 33%;
+                aspect-ratio: 222/145;
+                overflow: hidden;
+                border-radius: 40px;
+                @media screen and (max-width: 767px) {
+                    width: 100%;
+                    
+                }
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+
+            }
+            .text{
+                width: 66%;
+                @media screen and (max-width: 767px) {
+                    width: 100%;
+                }
+                h3{
+                    font-size: 20px;
+                    font-weight: 600;
+                    margin-bottom: 10px;
+                }
+                p{
+                    font-size: 14px;
+                    font-weight: 400;
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+    }
+}

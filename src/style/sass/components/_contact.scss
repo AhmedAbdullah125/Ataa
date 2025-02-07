@@ -3,6 +3,7 @@
     display: flex;
     flex-direction: column;
     gap: 25px;
+    align-items: center;
     @media screen and (max-width: 767px) {
         margin-top: 20px;
     }
@@ -14,6 +15,9 @@
         @media screen and (max-width: 767px) {
             flex-direction: column;
         }
+    }
+    .space-y-2{
+        width: 100%;
     }
     input , textarea{
         padding: 0 20px;

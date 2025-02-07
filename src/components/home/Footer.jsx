@@ -11,58 +11,35 @@ import { API_BASE_URL } from '@/lib/apiConfig';
 
 export default function Footer() { // Defining the main functional component named 'Footer'.
 
-    const [loading, setLoading] = useState(true); // State for loading indicator
-    const [data, setData] = useState(null);
-    const [contactData, setContactData] = useState(null);
-    const [error, setError] = useState(null);
-    useEffect(() => {
-        setLoading(true);
-        const headers = {
-            lang: 'ar', // Change language dynamically based on state
-        };
-        // Fetch data from the API with Axios
-        axios.get(`${API_BASE_URL}/social_media`, {
-            headers: headers,
-        }).then(response => {
-            setData(response.data.data);  // Set the response data to state
-            setLoading(false);  // Set loading to false
-
-        })
-            .catch(error => {
-                setError(error);  // Handle any errors
-                console.error('Error fetching data:', error);
-                setLoading(false)
-            });
-        axios.get(`${API_BASE_URL}/contacts`, {
-            headers: headers,
-        }).then(response => {
-            setContactData(response.data.data);  // Set the response data to state
-            setLoading(false);  // Set loading to false
-        })
-            .catch(error => {
-                setError(error);  // Handle any errors
-                console.error('Error fetching data:', error);
-                setLoading(false)
-            });
-    }, []);  // Run this effect whenever the `language` changes
-    const [whatsapp, setWhatsapp] = useState("");
+    const [data, setData] = useState([]);
+    const [contact, setContact] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        if (contactData?.length) {
-            const mobileNumber = contactData.find((item) => item.type === "mobile")?.value;
-            if (mobileNumber) {
-                setWhatsapp(mobileNumber);
+        setLoading(true)
+        const getData = async () => {
+            try {
+                const response = await axios.get(`${API_BASE_URL}/social-media`);
+                // const responseContact = await axios.get(`${API_BASE_URL}/contacts`);
+                let data = response.data.data;
+                // let dataContact = responseContact.data.data;
+                setData(data)
+                // setContact(dataContact)
+                setLoading(false)
+            } catch (error) {
+                console.error('Error retrieving data:', error);
+                throw new Error('Could not get data');
+                setLoading(false)
             }
-        }
-    }, [contactData]); // Runs when `contactData` updates
-    console.log(whatsapp);
-
+        };
+        getData();
+    }, []);
     return (
         <footer id='footer'> {/* Main footer container with padding and background color */}
             {
                 loading ? <Loading /> :
                     <>
-                        <Link href={`https://wa.me/${whatsapp}?text=Good%20Morning%20Alalaa`} target="_blank" className="fixed-what">
+                        <Link href={`https://wa.me/+965000000000?text=Good%20Morning%20Ataa`} target="_blank" className="fixed-what">
                             <i className="fa-brands fa-whatsapp"></i>
                         </Link>
                         <div className="container m-auto" id='footer'>
@@ -75,10 +52,10 @@ export default function Footer() { // Defining the main functional component nam
                                     <h3>الخدمات</h3>
                                     <div className="hagez"></div>
                                     <ul>
-                                        <li><Link href="/">تنمية المجتمع وتطوير الخدمات</Link></li>
-                                        <li><Link href="/">مساعدات فردية تلبي الاحتياج</Link></li>
-                                        <li><Link href="/">دعم الجمعيات والمشاريع التنموية</Link></li>
-                                        <li><Link href="/">تطوير العمل الخيري ومؤسساته</Link></li>
+                                        <li><Link href="/programs">تنمية المجتمع وتطوير الخدمات</Link></li>
+                                        <li><Link href="/programs">مساعدات فردية تلبي الاحتياج</Link></li>
+                                        <li><Link href="/programs">دعم الجمعيات والمشاريع التنموية</Link></li>
+                                        <li><Link href="/programs">تطوير العمل الخيري ومؤسساته</Link></li>
                                     </ul>
                                 </div>
                                 <div className="links">
@@ -87,7 +64,7 @@ export default function Footer() { // Defining the main functional component nam
                                     <ul>
                                         <li><Link href="/">الرئيسية</Link></li>
                                         <li><Link href="/about">من نحن</Link></li>
-                                        <li><Link href="/">البرامج الخيرية</Link></li>
+                                        <li><Link href="/programs">البرامج الخيرية</Link></li>
                                         <li><Link href="/contact">تواصل معنا</Link></li>
                                     </ul>
                                 </div>
@@ -105,11 +82,11 @@ export default function Footer() { // Defining the main functional component nam
                             <div className="lowerFooter">
                                 <Link href={"#"}>الشروط والاحكام</Link>
                                 <div className="social-links-global">
-                                    <Link href={"#"}><i className="fa-brands fa-facebook"></i></Link>
-                                    <Link href={"#"}><i className="fa-brands fa-instagram"></i></Link>
-                                    <Link href={"#"}><i className="fa-brands fa-tiktok"></i></Link>
-                                    <Link href={"#"}><i className="fa-brands fa-x-twitter"></i></Link>
-                                    <Link href={"#"}><i className="fa-brands fa-linkedin"></i></Link>
+                                    {
+                                        data.map((item, index) => (
+                                            <Link href={item.value} key={index}><i className={`fa-brands fa-${item.type}`}></i></Link>
+                                        ))
+                                    }
                                 </div>
                                 <Link href={"#"}>الشروط والاحكام</Link>
                             </div>

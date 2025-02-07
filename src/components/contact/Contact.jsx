@@ -9,8 +9,10 @@ import { z } from 'zod'; // Zod library for schema-based validation
 import { Button } from '@/components/ui/button'; // Button UI component
 import { Form, FormField, FormItem, FormControl, FormMessage, } from '@/components/ui/form';
 import { useState } from 'react'; // State management hook
-import logOutIcon from '/public/icons/logout.svg'
+import logOutIcon from '/public/icons/logoutblach.svg'
 import Image from 'next/image';
+import { review } from './review';
+import { API_BASE_URL } from '@/lib/apiConfig';
 export default function About() { // Defining the main functional component named 'Footer'.
     const FormSchema = z.object({
         feedback: z.string().min(10, { message: 'Phone number must be at least 10 characters.' }),
@@ -33,12 +35,9 @@ export default function About() { // Defining the main functional component name
     const handleSubmit = async (data) => {
         await review(API_BASE_URL, data, setLoading);
     };
-
     // Form submission handler
     function onSubmit(data) {
-        console.log(data);
-
-        // handleSubmit(data); // Call API request function
+        handleSubmit(data); // Call API request function
         // form.reset(); // Reset form fields
     }
     return (

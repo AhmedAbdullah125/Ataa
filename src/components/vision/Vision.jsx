@@ -19,7 +19,7 @@ export default function Vision() { // Defining the main functional component nam
                 <p className='greenTitled-p'>
                     مؤسسة وقفية عريقة بأدوات معاصرة ذات مرجعية في كل ما يتعلق باللأوقاف مبنية على أسس شرعية وأصول مهنية مؤسسية...
                 </p>
-                <Link href={'/about'} className='greenTitled-link'><span>شاهد البرامج الخيرية الان</span><Image src={logoutIcon} alt="arrow" /></Link>
+                <Link href={'/programs'} className='greenTitled-link'><span>شاهد البرامج الخيرية الان</span><Image src={logoutIcon} alt="arrow" /></Link>
 
             </section>
         </div>

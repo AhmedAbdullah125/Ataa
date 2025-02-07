@@ -1,9 +1,10 @@
-body {
-    overflow-x: hidden;
-}
 
 * {
     transition: all 0.3s ease-in-out;
+}
+body {
+    overflow-x: hidden;
+    transition: none;
 }
 
 .loading-logo {
@@ -15,6 +16,7 @@ body {
 header {
     box-shadow: 0px 0px 14px rgba(224, 245, 245, .15);
     background-color: #FFFEFA;
+
     .container {
         padding: 20px 0;
         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -145,6 +147,13 @@ header {
         align-items: center;
         gap: 3px;
     }
+}
+
+.fixed-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
 }
 
 .offer-header {

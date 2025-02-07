@@ -40,7 +40,6 @@ export default function Programs() { // Defining the main functional component n
         getPrograms();
 
     }, []);
-    console.log(tabs);
     
     return (
         <div className="about has-green-title">

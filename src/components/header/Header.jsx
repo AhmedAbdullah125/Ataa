@@ -4,15 +4,11 @@ import logo from '../../assets/images/home/logo.svg';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
-import { API_BASE_URL } from "@/lib/apiConfig";
-import axios from "axios";
-import Loading from '@/app/loading';
 import { usePathname } from 'next/navigation';
 import searchIcon from '/public/icons/search.svg';
 import logoutIcon from '/public/icons/logout.svg';
 
 export default function Header() {
-  let [lang, setLang] = useState('en');
   function handleClose() {
     document.querySelector('html').style.overflowY = 'unset';
     document.querySelector('.side-menu').classList.toggle('side-menu-active')
@@ -20,13 +16,27 @@ export default function Header() {
     document.querySelector('.menu-bars-X').classList.toggle('hidden')
     document.querySelector('.X-overlay').classList.toggle('hidden')
   }
+  const pathname = usePathname();  
 
-  const pathname = usePathname();
-  console.log(pathname);
-  
+  const [isFixed, setIsFixed] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 200) {
+        setIsFixed(true);
+        document.body.style.paddingTop = "104px";
+      } else {
+        setIsFixed(false);
+        document.body.style.paddingTop = "0";
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-      <header className="header">
+      <header className={`header ${isFixed ? 'fixed-header' : ''} `}>
         <div className="X-overlay hidden" onClick={handleClose}></div>
         <div className="container m-auto flex items-center gap-2 justify-between">
           <Link href="/"> <Image src={logo} alt="logo" className="logo-img" /></Link>
