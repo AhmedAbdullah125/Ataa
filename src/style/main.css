@@ -623,7 +623,7 @@ header .access {
   width: 100px;
   aspect-ratio: 1.154;
   position: relative;
-  background: conic-gradient(from 120deg at 50% 64%, rgba(0, 0, 0, 0), #ff1919 1deg 120deg, rgba(0, 0, 0, 0) 121deg);
+  background: conic-gradient(from 120deg at 50% 64%, rgba(0, 0, 0, 0), var(--main-color) 1deg 120deg, rgba(0, 0, 0, 0) 121deg);
   animation: l27-0 1.5s infinite cubic-bezier(0.3, 1, 0, 1);
 }
 
