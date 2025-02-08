@@ -17,10 +17,11 @@ export default function Donation() { // Defining the main functional component n
     const [pathId, setPathId] = useState(searchParams.get('id'))
     let [program, setprogram] = useState([]);
     let [loading, setLoading] = useState(true);
+    let [data, setData] = useState([]);
     const [donation, setDonation] = useState(null);
-    const [payMethod , setPayMethod] = useState(null)
+    const [payMethod, setPayMethod] = useState(null)
     const donationAmount = [100, 200, 500, 750, 1000, 1250]
-    const methods = [pay1icon,pay2icon,pay3icon,pay4icon]
+    const methods = [pay1icon, pay2icon, pay3icon, pay4icon]
     useEffect(() => {
         setLoading(true)
         const getProgram = async () => {
@@ -28,6 +29,9 @@ export default function Donation() { // Defining the main functional component n
                 const response = await axios.get(`${API_BASE_URL}/program/${pathId}`);
                 let data = response.data.data;
                 setprogram(data)
+                const response2 = await axios.get(`${API_BASE_URL}/payment`);
+                let data2 = response2.data.data;
+                setData(data2)
                 setLoading(false)
             } catch (error) {
                 console.error('Error retrieving data:', error);
@@ -56,19 +60,21 @@ export default function Donation() { // Defining the main functional component n
                             <div className="donation-form">
                                 <div className="details">
                                     <div className="img-cont">
-                                        <Image src={program.thumbnail} alt="logout" width={600} height={600}  />
+                                        <Image src={program.thumbnail} alt="logout" width={600} height={600} />
                                     </div>
                                     <div className="text">
-                                        <h3>  أنت تدعم حملة جمع التبرعات <span>{program.mainTitle}</span> </h3>
-                                        <p>ستذهب تبرعاتك إلى<span> مؤسسة عطاء العالمية</span> .</p>
+                                        {/* 
+                                    <h3>  أنت تدعم حملة جمع التبرعات <span>{program.mainTitle}</span> </h3>
+                                        <p>ستذهب تبرعاتك إلى<span> مؤسسة عطاء العالمية</span> .</p> */}
+                                        <p>{program.titlePayment}</p>
                                     </div>
                                 </div>
                                 <div className="amounts">
                                     <h4>أدخل تبرعك</h4>
                                     <div className="amounts-cont">
                                         {
-                                            donationAmount.map((amount, index) =>
-                                                <div className={donation === index ? 'active-amount amount' : 'amount'} key={index}  onClick={() => setDonation(index)}>
+                                            data.amountPayment.map((amount, index) =>
+                                                <div className={donation === index ? 'active-amount amount' : 'amount'} key={index} onClick={() => setDonation(index)}>
                                                     <span >{amount} $</span>
                                                 </div>
                                             )
@@ -81,13 +87,13 @@ export default function Donation() { // Defining the main functional component n
                                     </div>
                                     <div className="hints">
                                         <h4>نصائح حول خدمات</h4>
-                                        <p>تتقاضى عطاء العالمية رسومًا بنسبة 0% على المنصة للمنظمين. ستواصل عطاء العالمية تقديم خدماتها بفضل المتبرعين الذين سيتركون مبلغًا اختياريًا هنا:</p>
+                                        <p>{data.advices}</p>
                                     </div>
                                     <h4>طريقة الدفع</h4>
                                     <div className="amounts-cont">
                                         {
                                             methods.map((method, index) =>
-                                                <div className={payMethod === index ? 'active-amount amount' : 'amount'} key={index}  onClick={() => setPayMethod(index)}>
+                                                <div className={payMethod === index ? 'active-amount amount' : 'amount'} key={index} onClick={() => setPayMethod(index)}>
                                                     <Image src={method} alt='ataa'></Image>
                                                 </div>
                                             )
@@ -105,7 +111,7 @@ export default function Donation() { // Defining the main functional component n
                                         </div>
                                         <div className="rr">
                                             <span>المجموع المستحق اليوم</span>
-                                            <span>{donationAmount[donation]+15} $</span>
+                                            <span>{donationAmount[donation] + 15} $</span>
                                         </div>
                                     </div>
 

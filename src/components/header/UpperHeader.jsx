@@ -15,7 +15,7 @@ export default function Header() {
         setLoading(true)
         const getData = async () => {
             try {
-                const response = await axios.get(`${API_BASE_URL}/social-media`);
+                const response = await axios.get(`${API_BASE_URL}/settings`);
                 // const responseContact = await axios.get(`${API_BASE_URL}/contacts`);
                 let data = response.data.data;
                 // let dataContact = responseContact.data.data;
@@ -30,35 +30,38 @@ export default function Header() {
         };
         getData();
     }, []);
-    
+
 
     return (
         <div className="uperHeader">
-            <div className="container m-auto">
-                <div className="uper-header-cont">
-                    <div className="r-side">
-                        <h3>مرحبا بكم.</h3>
-                        <div className="bullet"></div>
-                        <Link scroll={true} href="mailto:info@datareality.sa" className="email-phone-cont">
-                            <Image src={emailIcon} alt="email" />
-                            <p>info@datareality.sa</p>
-                        </Link>
-                        <div className="bullet"></div>
-                        <Link scroll={true} href="tel:+966504154883" className="email-phone-cont">
-                            <Image src={phoneIcon} alt="phone" />
-                            <p>+966 50 415 4883</p>
-                        </Link>
+            {
+                loading ? null :
+                    <div className="container m-auto">
+                        <div className="uper-header-cont">
+                            <div className="r-side">
+                                <h3>مرحبا بكم.</h3>
+                                <div className="bullet"></div>
+                                <Link scroll={true} href={`mailto:${data.footer.email}`} className="email-phone-cont">
+                                    <Image src={emailIcon} alt="email" />
+                                    <p>{data.footer.email}</p>
+                                </Link>
+                                <div className="bullet"></div>
+                                <Link scroll={true} href={`tel:${data.footer.mobile}`} className="email-phone-cont">
+                                    <Image src={phoneIcon} alt="phone" />
+                                    <p>{data.footer.mobile}</p>
+                                </Link>
+                            </div>
+                            <div className="social-links-global">
+                                {
+                                    loading ? null :
+                                        data.socialData.map((item, index) => (
+                                            <Link scroll={true} href={item.value} key={index}><i className={`fa-brands fa-${item.type}`}></i></Link>
+                                        ))
+                                }
+                            </div>
+                        </div>
                     </div>
-                    <div className="social-links-global">
-                        {
-                            loading ? null :
-                                data.map((item , index) => (
-                                    <Link scroll={true} href={item.value} key={index}><i className={`fa-brands fa-${item.type}`}></i></Link>
-                                ))
-                        }
-                    </div>
-                </div>
-            </div>
+            }
         </div>
 
     );

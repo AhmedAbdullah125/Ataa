@@ -19,7 +19,7 @@ export default function Footer() { // Defining the main functional component nam
         setLoading(true)
         const getData = async () => {
             try {
-                const response = await axios.get(`${API_BASE_URL}/social-media`);
+                const response = await axios.get(`${API_BASE_URL}/settings`);
                 // const responseContact = await axios.get(`${API_BASE_URL}/contacts`);
                 let data = response.data.data;
                 // let dataContact = responseContact.data.data;
@@ -45,8 +45,8 @@ export default function Footer() { // Defining the main functional component nam
                         <div className="container m-auto" id='footer'>
                             <div className="content">
                                 <div className="logo">
-                                    <Image src={logo} alt="Mazar" width={200} height={200} />
-                                    <p>عطاء العالمية ...... مؤسسة لا ربحية تعمل في مجال إدارة وتصميم البرامج المجتمعية والوقفية بهدف تمكين الأفراد والمؤسسات لتقديم أفضل الخدمات في مجالات العمل المجتمعي.</p>
+                                    <Image src={data.footer.logo} alt="Mazar" width={200} height={200} />
+                                    <p>{data.footer.titleFooter}</p>
                                 </div>
                                 <div className="links">
                                     <h3>الخدمات</h3>
@@ -72,9 +72,9 @@ export default function Footer() { // Defining the main functional component nam
                                     <h3>تواصل معنا</h3>
                                     <div className="hagez"></div>
                                     <ul>
-                                        <li><Link scroll={true} href="https://wa.me/+966504154883" className='contact-li-cont'> <i className="fa-brands fa-whatsapp"></i> +966 50 415 4883</Link></li>
-                                        <li><Link scroll={true} href="mailto:info@Contact.sa" className='contact-li-cont'><i className="fa-regular fa-envelope"></i> info@Contact.sa</Link></li>
-                                        <li><p className='location contact-li-cont'><i className="fa-solid fa-location-dot"></i>  شارع الملك فهد ، الرياض ، المملكة العربية السعودية</p></li>
+                                        <li><Link scroll={true} href={`https://wa.me/${data.footer.mobile}`} className='contact-li-cont'> <i className="fa-brands fa-whatsapp"></i> {data.footer.mobile}</Link></li>
+                                        <li><Link scroll={true} href={`mailto:${data.footer.email}`} className='contact-li-cont'><i className="fa-regular fa-envelope"></i> {data.footer.email}</Link></li>
+                                        <li><p className='location contact-li-cont'><i className="fa-solid fa-location-dot"></i>  {data.footer.location}</p></li>
                                     </ul>
                                 </div>
 
@@ -83,7 +83,7 @@ export default function Footer() { // Defining the main functional component nam
                                 <Link scroll={true} href={"/terms"}>الشروط والاحكام</Link>
                                 <div className="social-links-global">
                                     {
-                                        data.map((item, index) => (
+                                        data.socialData.map((item, index) => (
                                             <Link scroll={true} href={item.value} key={index}><i className={`fa-brands fa-${item.type}`}></i></Link>
                                         ))
                                     }
