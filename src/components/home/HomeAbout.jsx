@@ -1,12 +1,34 @@
 
 'use client'
-import React from 'react'; // Importing React to use JSX syntax and create components.
+import React, { useEffect, useState } from 'react'; // Importing React to use JSX syntax and create components.
 import Image from 'next/image';
 import logoutIcon from '/public/icons/logout.svg'
 import img from '/public/about/1.jpg'
 import Link from 'next/link';
+import axios from 'axios';
+import { API_BASE_URL } from '@/lib/apiConfig';
 
 export default function HomeAbout() { // Defining the main functional component named 'Footer'.
+
+    let [data, setData] = useState([]);
+    let [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        setLoading(true)
+        const getData = async () => {
+            try {
+                const response = await axios.get(`${API_BASE_URL}/about-us`);
+                let data = response.data.data;
+                setData(data)
+                setLoading(false)
+            } catch (error) {s
+                console.error('Error retrieving data:', error);
+                throw new Error('Could not get data');
+                setLoading(false)
+            }
+        };
+        getData();
+    }, []);
 
     return (
         <section className=''>
@@ -17,8 +39,8 @@ export default function HomeAbout() { // Defining the main functional component 
                             <h5>من نحن</h5>
                             <div className="hagez"></div>
                         </div>
-                        <h2>تطويــر واستشــارات الأوقاف بأعلـــى المعـــايير المهنية.</h2>
-                        <p>مؤسسة العطاء والتنمية الوقفية مؤسسة لا ربحية تعمل في مجال إدارة وتطوير واستشارات الأوقاف ، للقائمين عليها خبرة في هذا المجال تمتد لسنوات عديدة ، تحقق خلالها ولله الحمد نجاحات متميزة في مجال تمكين الواقفين من الاستفادة القصوى من أوقافهم...</p>
+                        <h2>{data.title}</h2>
+                        <p>{data.description}</p>
                         <Link scroll={true} href={'/about'}>اقــــرأ المزيد<Image src={logoutIcon} alt="logout" /></Link>
                     </div>
                     <div className="img-sec">
