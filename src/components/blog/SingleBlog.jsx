@@ -14,14 +14,6 @@ import axios from 'axios';
 import Loading from '@/app/loading';
 import { API_BASE_URL } from '@/lib/apiConfig';
 export default function Blog() { // Defining the main functional component named 'Footer'.
-    let data = [
-        { id: 1, name: "تســـويق مبــــاشر", img: img1, category: "برنامج السلال الغذائية", categId: 2 },
-        { id: 2, name: "تســـويق مبــــاشر", img: img2, category: "البرامج التنموية", categId: 3 },
-        { id: 3, name: "تســـويق مبــــاشر", img: img3, category: "البرامج الصحية", categId: 4 },
-
-    ]
-
-
 
 
     const searchParams = useSearchParams()
@@ -29,7 +21,9 @@ export default function Blog() { // Defining the main functional component named
     let [blog, setBlog] = useState([]);
     let [blogs, setBlogs] = useState([]);
     let [loading, setLoading] = useState(true);
-
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathId]);
     useEffect(() => {
         setLoading(true)
         const getProgram = async () => {

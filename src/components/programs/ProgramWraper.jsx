@@ -16,7 +16,9 @@ export default function ProramWraper() { // Defining the main functional compone
     let [program, setprogram] = useState([]);
     let [programs, setprograms] = useState([]);
     let [loading, setLoading] = useState(true);
-
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, [pathId]);
     useEffect(() => {
         setLoading(true)
         const getProgram = async () => {
