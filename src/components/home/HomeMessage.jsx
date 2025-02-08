@@ -72,7 +72,7 @@ export default function HomeMessage() { // Defining the main functional componen
                                 {
                                     data.map((item, index) =>
                                         <div className="item" key={item.id}>
-                                            <Image src={item.image || messs[index].img} alt="logout" width={100} height={100} />
+                                            <Image src={item.image || messs[index % 4].img} alt="logout" width={100} height={100} />
                                             <div className="h3-cont">
                                                 <Image src={img6} alt="logout" />
                                                 <h3>{item.title}</h3>

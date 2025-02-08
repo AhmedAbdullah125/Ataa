@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'; // Importing React to use JSX syntax and create components.
+import React, { useEffect, useState } from 'react'; // Importing React to use JSX syntax and create components.
 import GreenPageTitle from '@/components/sharing/GreenPageTitle';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -9,14 +9,35 @@ import img2 from '/public/about/5.svg'
 import img3 from '/public/about/6.svg'
 import img4 from '/public/about/7.svg'
 import img6 from '/public/about/8.svg'
+import axios from 'axios';
+import { API_BASE_URL } from '@/lib/apiConfig';
 
 export default function Message() { // Defining the main functional component named 'Footer'.
-    let data = [
-        { id: 1, title: 'تنمية المجتمع وتطوير الخدمات', img: img1, rate: 4.2, description: "الإسهام في تحقيق أهداف المجتمع التنموية في المجالات الحيوية و تقديم الخدمات الاجتماعية وتطويرها..." },
-        { id: 2, title: 'مساعدات فردية تلبي الاحتياج', img: img2, rate: 5.0, description: "تعاون المجتمع العقاري بمنصبهم وتطويرهم وتقديم الخدمات الاجتماعية وتطويرها..." },
-        { id: 3, title: 'تطوير الخدمات التي تدربها المجتمع', img: img3, rate: 4.4, description: "تقديم الخدمات الاجتماعية وتطويرها..." },
-        { id: 4, title: 'تطوير الخدمات التي تدربها المجتمع', img: img4, rate: 4.9, description: "تقديم الخدمات الاجتماعية وتطويرها..." },
+    let messs = [
+        { img: img1 },
+        { img: img2 },
+        { img: img3 },
+        { img: img4 },
     ]
+    let [data, setData] = useState([]);
+    let [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        setLoading(true)
+        const getProgram = async () => {
+            try {
+                const response = await axios.get(`${API_BASE_URL}/messages`);
+                let data = response.data.data;
+                setData(data)
+                setLoading(false)
+            } catch (error) {
+                console.error('Error retrieving data:', error);
+                throw new Error('Could not get data');
+                setLoading(false)
+            }
+        };
+        getProgram();
+    }, []);
 
     return (
         <div className="about has-green-title">
@@ -32,9 +53,9 @@ export default function Message() { // Defining the main functional component na
             <div className="container m-auto">
                 <div className="grid-sec">
                     {
-                        data.map((item) =>
+                        data.map((item, index) =>
                             <div className="item" key={item.id}>
-                                <Image src={item.img} alt="logout" width={100} height={100} />
+                                <Image src={item.image || messs[index % 4].img} alt="logout" width={100} height={100} />
                                 <div className="h3-cont">
                                     <Image src={img6} alt="logout" />
                                     <h3>{item.title}</h3>
