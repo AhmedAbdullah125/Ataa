@@ -94,7 +94,7 @@ export default function Header() {
         loading ? <Loading /> :
           <header className={`header ${isFixed ? 'fixed-header' : ''} `}>
             <div className="X-overlay hidden" onClick={handleClose}></div>
-            <div className="container m-auto flex items-center gap-2 justify-between relative z-10 bg-white">
+            <div className="container m-auto flex items-center gap-2 justify-between relative  bg-white">
               <Link scroll={true} href="/"> <Image src={data.footer.logo} alt="logo" className="logo-img" width={100} height={100} /></Link>
 
               <div className="links">
@@ -148,7 +148,7 @@ export default function Header() {
                   className="container input-container hidden" id='search'>
                   <div className="search-inp-cont">
                     <div className="relative">
-                      <input type="text" placeholder='ابحث هنا' id='search-input' />
+                      <input type="text" placeholder='ابحث هنا' id='search-input' onKeyDown={(e) => { if (e.key === 'Enter') { sendSearchRequest() } }}/>
                       <button className='search-icon' onClick={sendSearchRequest}>
                         <Image src={searchIcon} alt="search" />
                       </button>
