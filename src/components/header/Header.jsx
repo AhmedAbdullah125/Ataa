@@ -1,6 +1,5 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import logo from '../../assets/images/home/logo.svg';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
@@ -53,7 +52,6 @@ export default function Header() {
       } catch (error) {
         console.error('Error retrieving data:', error);
         throw new Error('Could not get data');
-        setLoading(false)
       }
     };
     getData();
@@ -76,8 +74,6 @@ export default function Header() {
         if (data.length === 0) {
           toast.error('لا يوجد بيانات للبحث')
         }
-
-
       } catch (error) {
         console.error('Error retrieving data:', error);
         throw new Error('Could not get data');
@@ -87,7 +83,6 @@ export default function Header() {
       document.getElementById('search-input').style.border = '1px solid red';
     }
   };
-
   return (
     <>
       {
@@ -181,6 +176,5 @@ export default function Header() {
           </header >
       }
     </>
-
   );
 }
