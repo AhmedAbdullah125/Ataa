@@ -147,6 +147,11 @@ header {
         align-items: center;
         gap: 3px;
     }
+    .input-container{
+        padding-top: 0;
+        padding-bottom: 0;
+        margin: 0 auto;
+    }
 }
 
 .fixed-header {
@@ -206,6 +211,90 @@ header {
             p {
                 font-size: 16px;
             }
+        }
+    }
+}
+
+.search-inp-cont{
+    position: relative;
+    background-color: #f9f9f9;
+    padding: 10px 20px;
+    z-index: 2;
+    .relative{
+        button{
+            position: absolute;
+            inset-inline-end: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            background-color: $main;
+            border-radius: 10px;
+            padding: 4px;
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+    }
+    input{
+        width: 100%;
+        border: none;
+        outline: none;
+        height: 50px;
+        background-color: $white;
+        border-radius: 30px;
+        padding: 20px;
+    }
+}
+.search-result{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-height: 200px;
+    overflow: scroll;
+    .single-res{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        &:hover{
+            background-color: rgba(14,109,53,0.1);
+        }
+        .r-side{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            h2{
+                font-size: 18px;
+                font-weight: 700;
+                margin-bottom: 0;
+                color: $main;
+            }
+            h3{
+                font-size: 16px;
+                font-weight: 500;
+                margin-bottom: 0;
+                color: $black;
+            }
+
+        }
+        .l-side{
+           .img-cont{
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            border-radius: 10px;
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+           }
         }
     }
 }

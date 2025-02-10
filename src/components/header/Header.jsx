@@ -10,7 +10,8 @@ import logoutIcon from '/public/icons/logout.svg';
 import axios from 'axios';
 import { API_BASE_URL } from '@/lib/apiConfig';
 import Loading from '@/app/loading';
-
+import { motion } from 'framer-motion'
+import { toast } from 'sonner';
 export default function Header() {
   function handleClose() {
     document.querySelector('html').style.overflowY = 'unset';
@@ -38,8 +39,8 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   const [data, setData] = useState([]);
-  const [contact, setContact] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [searchData, setSearchData] = useState([]);
 
   useEffect(() => {
     setLoading(true)
@@ -57,7 +58,35 @@ export default function Header() {
     };
     getData();
   }, []);
+  function handleToggleSerch() {
+    let searchInput = document.getElementById('search');
+    searchInput.classList.toggle('hidden')
+  }
+  const sendSearchRequest = async () => {
+    let iputtValue = document.getElementById('search-input').value;
+    if (iputtValue) {
+      try {
+        const response = await axios.get(`${API_BASE_URL}/programs/search?search=${iputtValue}`);
+        // const responseContact = await axios.get(`${API_BASE_URL}/contacts`);
+        let data = response.data.data;
+        // let dataContact = responseContact.data.data;
+        setSearchData(data)
+        // setContact(dataContact)
+        console.log(data);
+        if (data.length === 0) {
+          toast.error('لا يوجد بيانات للبحث')
+        }
 
+
+      } catch (error) {
+        console.error('Error retrieving data:', error);
+        throw new Error('Could not get data');
+      }
+    }
+    else {
+      document.getElementById('search-input').style.border = '1px solid red';
+    }
+  };
 
   return (
     <>
@@ -65,8 +94,8 @@ export default function Header() {
         loading ? <Loading /> :
           <header className={`header ${isFixed ? 'fixed-header' : ''} `}>
             <div className="X-overlay hidden" onClick={handleClose}></div>
-            <div className="container m-auto flex items-center gap-2 justify-between">
-              <Link scroll={true} href="/"> <Image src={data.footer.logo} alt="logo" className="logo-img"  width={100} height={100}/></Link>
+            <div className="container m-auto flex items-center gap-2 justify-between relative z-10 bg-white">
+              <Link scroll={true} href="/"> <Image src={data.footer.logo} alt="logo" className="logo-img" width={100} height={100} /></Link>
 
               <div className="links">
                 <Link scroll={true} href="/" className={pathname === '/' || pathname === '' ? 'active' : ''}>الرئيسية</Link>
@@ -78,7 +107,11 @@ export default function Header() {
                 <Link scroll={true} href="/blogs" className={pathname === '/blogs' ? 'active' : ''} >المدونة</Link>
               </div>
               <div className="access">
-                <Link scroll={true} href="/login" className='book-link-yellow'><Image src={searchIcon} alt="search" /></Link>
+                {
+                  pathname === '/programs' ?
+                    <div scroll={true} href="/login" className='book-link-yellow'><Image src={searchIcon} alt="search" onClick={handleToggleSerch} /></div>
+                    : null
+                }
                 <Link scroll={true} href="/contact" className='book-link'><span>اتصل بنا</span><Image src={logoutIcon} alt="search" /></Link>
               </div>
               <Menu className='menu-bars' onClick={() => {
@@ -101,7 +134,51 @@ export default function Header() {
                 </div>
               </div>
             </div>
-          </header>
+            {
+              pathname === '/programs' ?
+                <motion.div
+                  initial={{ y: -50, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{
+                    type: 'spring',
+                    bounce: 0.2,
+                    duration: .2,
+                  }}
+                  // viewport={{ once: true }}
+                  className="container input-container hidden" id='search'>
+                  <div className="search-inp-cont">
+                    <div className="relative">
+                      <input type="text" placeholder='ابحث هنا' id='search-input' />
+                      <button className='search-icon' onClick={sendSearchRequest}>
+                        <Image src={searchIcon} alt="search" />
+                      </button>
+                    </div>
+
+                  </div>
+                  {
+                    searchData.length > 0 ?
+                      <div className="search-result">
+                        {
+                          searchData.map((item, index) =>
+                            <Link href={`/program?id=${item.slug}`} className="single-res" key={index}>
+                              <div className="r-side">
+                                <h2>{item.main_title}</h2>
+                                <h3>{item.name}</h3>
+                              </div>
+                              <div className="l-side">
+                                <div className="img-cont">
+                                  {/* <Image src={item.thumbnail} width={100} height={100}></Image> */}
+                                </div>
+                              </div>
+                            </Link>
+                          )
+                        }
+                      </div>
+                      : null
+                  }
+                </motion.div> : null
+            }
+          </header >
       }
     </>
 
