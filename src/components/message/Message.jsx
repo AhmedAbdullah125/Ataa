@@ -63,7 +63,7 @@ export default function Message() { // Defining the main functional component na
                                 <div className="hagez"></div>
                                 <p>{item.description}</p>
                                 <div className="rate">
-                                    <i className="fa-solid fa-star"></i> <span className='rate-value'>{item.rate}</span><span className='rate-votes'>(122)</span>
+                                    <i className="fa-solid fa-star"></i> <span className='rate-value'>{item.rate}</span><span className='rate-votes'>({item.view})</span>
                                 </div>
                             </div>
                         )

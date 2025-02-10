@@ -65,12 +65,8 @@ export default function Header() {
     if (iputtValue) {
       try {
         const response = await axios.get(`${API_BASE_URL}/programs/search?search=${iputtValue}`);
-        // const responseContact = await axios.get(`${API_BASE_URL}/contacts`);
         let data = response.data.data;
-        // let dataContact = responseContact.data.data;
         setSearchData(data)
-        // setContact(dataContact)
-        console.log(data);
         if (data.length === 0) {
           toast.error('لا يوجد بيانات للبحث')
         }
@@ -143,7 +139,7 @@ export default function Header() {
                   className="container input-container hidden" id='search'>
                   <div className="search-inp-cont">
                     <div className="relative">
-                      <input type="text" placeholder='ابحث هنا' id='search-input' onKeyDown={(e) => { if (e.key === 'Enter') { sendSearchRequest() } }}/>
+                      <input type="text" placeholder='ابحث هنا' id='search-input' onKeyDown={(e) => { if (e.key === 'Enter') { sendSearchRequest() } }} />
                       <button className='search-icon' onClick={sendSearchRequest}>
                         <Image src={searchIcon} alt="search" />
                       </button>

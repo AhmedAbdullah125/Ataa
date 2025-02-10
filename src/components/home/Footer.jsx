@@ -14,6 +14,7 @@ export default function Footer() { // Defining the main functional component nam
     const [data, setData] = useState([]);
     const [contact, setContact] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [whatsapp , setWhatsapp] = useState([]);
 
     useEffect(() => {
         setLoading(true)
@@ -22,7 +23,12 @@ export default function Footer() { // Defining the main functional component nam
                 const response = await axios.get(`${API_BASE_URL}/settings`);
                 // const responseContact = await axios.get(`${API_BASE_URL}/contacts`);
                 let data = response.data.data;
-                // let dataContact = responseContact.data.data;
+                for (let index = 0; index < data.socialData.length; index++) {
+                    if (data.socialData[index].type == 'whatsapp') {
+                        setWhatsapp(data.socialData[index].value)
+                    }
+                    
+                }
                 setData(data)
                 // setContact(dataContact)
                 setLoading(false)
@@ -32,14 +38,16 @@ export default function Footer() { // Defining the main functional component nam
                 setLoading(false)
             }
         };
+       
         getData();
     }, []);
+    
     return (
         <footer id='footer'> {/* Main footer container with padding and background color */}
             {
                 loading ? <Loading /> :
                     <>
-                        <Link scroll={true} href={`https://wa.me/+965000000000?text=Good%20Morning%20Ataa`} target="_blank" className="fixed-what">
+                        <Link scroll={true} href={`https://wa.me/${whatsapp}?text=Good%20Morning%20Ataa`} target="_blank" className="fixed-what">
                             <i className="fa-brands fa-whatsapp"></i>
                         </Link>
                         <div className="container m-auto" id='footer'>
