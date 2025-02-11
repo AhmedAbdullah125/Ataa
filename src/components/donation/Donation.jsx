@@ -41,7 +41,6 @@ export default function Donation() { // Defining the main functional component n
         };
         getProgram();
     }, []);
-
     return (
         <div className="">
             <div className="container m-auto mb-10">

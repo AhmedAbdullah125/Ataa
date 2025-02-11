@@ -58,7 +58,7 @@ export default function ImageSwiper({ data }) {
                         </div>
                         <h6 className="target">${data.target} الهدف</h6>
                     </div>
-                    <Link scroll={true} href={`/donation?id=${data.id}`} className='donate-link'><span>تبــرع الان</span><Image src={lovedMessage} alt="logout" /></Link>
+                    <Link scroll={true} href={`/donation?id=${data.slug}`} className='donate-link'><span>تبــرع الان</span><Image src={lovedMessage} alt="logout" /></Link>
                 </div>
             </div>
         </div>
