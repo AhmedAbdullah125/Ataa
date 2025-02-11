@@ -90,7 +90,7 @@ export default function Blog() { // Defining the main functional component named
                                             </div>
                                             <div className="blog-details">
                                                 <div className="date-read">
-                                                    <span>21 نوفمبر 2024</span><div className="bullet"></div><span>{item.timeReading} دقائق قراءة</span><div className="bullet"></div><span>{item.view || 0}<i className="fa-solid fa-eye"></i></span>
+                                                    <span>{item.createdAt}</span><div className="bullet"></div><span>{item.timeReading} دقائق قراءة</span><div className="bullet"></div><span>{item.view || 0}<i className="fa-solid fa-eye"></i></span>
 
                                                 </div>
                                                 <h2>{item.name}</h2>
