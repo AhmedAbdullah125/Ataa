@@ -11,7 +11,6 @@ import img4 from '/public/about/7.svg'
 import img6 from '/public/about/8.svg'
 import axios from 'axios';
 import { API_BASE_URL } from '@/lib/apiConfig';
-
 export default function Message() { // Defining the main functional component named 'Footer'.
     let messs = [
         { img: img1 },
@@ -21,7 +20,6 @@ export default function Message() { // Defining the main functional component na
     ]
     let [data, setData] = useState([]);
     let [loading, setLoading] = useState(true);
-
     useEffect(() => {
         setLoading(true)
         const getProgram = async () => {
@@ -38,7 +36,6 @@ export default function Message() { // Defining the main functional component na
         };
         getProgram();
     }, []);
-
     return (
         <div className="about has-green-title">
             <GreenPageTitle firstPArt={"الر"} secondPart={"ســــــا"} thirdPart={"لة!."} />
@@ -48,7 +45,6 @@ export default function Message() { // Defining the main functional component na
                     <div className="hagez"></div>
                     <h2>خدمات اجتماعية متطورة تلبي احتياجات الأفراد والمجتمع</h2>
                 </div>
-
             </section>
             <div className="container m-auto">
                 <div className="grid-sec">
@@ -69,7 +65,6 @@ export default function Message() { // Defining the main functional component na
                         )
                     }
                 </div>
-
             </div>
             <Link scroll={true} href={'/programs'} className='greenTitled-link'><span>شاهد البرامج الخيرية الان</span><Image src={logoutIcon} alt="arrow" /></Link>
         </div>
