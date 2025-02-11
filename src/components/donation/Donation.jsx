@@ -82,7 +82,7 @@ export default function Donation() { // Defining the main functional component n
                                     </div>
                                     <div className="input-cont">
                                         <span>00.</span>
-                                        <input type="text" value={donationAmount[donation]} />
+                                        <input type="text" value={data.amountPayment[donation]} />
                                         <p><span>USD</span> $ </p>
                                     </div>
                                     <div className="hints">
