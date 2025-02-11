@@ -11,13 +11,9 @@ import img4 from '/public/about/7.svg'
 import img6 from '/public/about/8.svg'
 import axios from 'axios';
 import { API_BASE_URL } from '@/lib/apiConfig';
-export default function Message() { // Defining the main functional component named 'Footer'.
-    let messs = [
-        { img: img1 },
-        { img: img2 },
-        { img: img3 },
-        { img: img4 },
-    ]
+export default function Message() { 
+    // Defining the main functional component named 'Footer'.
+    let messs = [ { img: img1 }, { img: img2 }, { img: img3 }, { img: img4 }, ]
     let [data, setData] = useState([]);
     let [loading, setLoading] = useState(true);
     useEffect(() => {

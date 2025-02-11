@@ -27,9 +27,9 @@ export default function ProramWraper() { // Defining the main functional compone
                 const responsePrograms = await axios.get(`${API_BASE_URL}/programs`);
                 let data = response.data.data;
                 let programs = responsePrograms.data.data;
-                setprogram(data)
-                setprograms(programs)
-                setLoading(false)
+                setprogram(data);
+                setprograms(programs);
+                setLoading(false);
             } catch (error) {
                 console.error('Error retrieving data:', error);
                 throw new Error('Could not get data');
@@ -39,7 +39,6 @@ export default function ProramWraper() { // Defining the main functional compone
         getProgram();
 
     }, []);
-
     return (
         <div className="container m-auto ataa-custom-slider proram-wraper">
             {
@@ -53,7 +52,7 @@ export default function ProramWraper() { // Defining the main functional compone
                         />
                         <ImageSwiper data={program} />
                         <ProgramDetails data={program} />
-                        <ProrgamLikes data={programs} categoryId={program.categoryId} />
+                        <ProrgamLikes data={programs} categoryId={program.categoryId} programId={program.id}/>
                     </>
             }
 
