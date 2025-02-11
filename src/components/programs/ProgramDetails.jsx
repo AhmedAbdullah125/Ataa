@@ -51,7 +51,7 @@ export default function ImageSwiper({ data }) {
                 </div>
                 <div className="achived">
                     <div className="cont-progress">
-                        <h4 className="recievied-amount">${data.target - data.compiled}</h4>
+                        <h4 className="recievied-amount"><span>متبقي</span>${data.target - data.compiled}</h4>
                         <span>تم جمع مبلغ {data.compiled} دولار أمريكي</span>
                         <div className="progress-bar-cont">
                             <div className="progress-achived" style={{ width: `${(data.compiled / data.target) * 100}%` }}></div>
