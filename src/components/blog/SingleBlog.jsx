@@ -43,7 +43,7 @@ export default function Blog() { // Defining the main functional component named
         };
         getProgram();
 
-    }, []);
+    }, [pathId]);
     return (
         <div className="single-blog">
             {
@@ -79,6 +79,7 @@ export default function Blog() { // Defining the main functional component named
                                 {
                                     blogs.map((item) =>
 
+                                        item.id != blog.id ?
                                         <motion.div
                                             initial={{ opacity: 0, scale: 0.9 }}
                                             animate={{ opacity: 1, scale: 1 }}
@@ -95,9 +96,13 @@ export default function Blog() { // Defining the main functional component named
                                                 </div>
                                                 <h2>{item.name}</h2>
                                                 <p>{item.description}</p>
-                                                <Link scroll={true} href={`/blog?id=${item.slug}`}><span>قراءة المزيد </span><Image src={LogOutIcon} alt="logout" /></Link>
+                                                <div className='read-link' scroll={true} href={`/blog?id=${item.slug}`} onClick={() => {
+                                                    window.scrollTo(0, 0);
+                                                    setPathId(item.slug)
+                                                    }} ><span>قراءة المزيد </span><Image src={LogOutIcon} alt="logout" /></div>
                                             </div>
                                         </motion.div>
+                                        : null
                                     )
                                 }
                             </div>

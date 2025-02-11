@@ -23,6 +23,7 @@ export default function Donation() { // Defining the main functional component n
     const donationAmount = [100, 200, 500, 750, 1000, 1250]
     const methods = [pay1icon, pay2icon, pay3icon, pay4icon]
     useEffect(() => {
+        window.scrollTo(0, 0);
         setLoading(true)
         const getProgram = async () => {
             try {

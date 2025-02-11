@@ -1982,7 +1982,7 @@ footer .served i {
   text-align: justify;
   margin-bottom: 0;
 }
-.blog-details a {
+.blog-details a, .blog-details .read-link {
   display: flex;
   align-items: center;
   gap: 5px;
