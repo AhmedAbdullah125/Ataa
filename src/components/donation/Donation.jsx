@@ -110,7 +110,7 @@ export default function Donation() { // Defining the main functional component n
                                         </div>
                                         <div className="rr">
                                             <span>المجموع المستحق اليوم</span>
-                                            <span>{donationAmount[donation] + 15} $</span>
+                                            <span>{Number(data.amountPayment[donation]) + 15} $</span>
                                         </div>
                                     </div>
 
