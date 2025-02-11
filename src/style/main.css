@@ -2281,6 +2281,7 @@ footer .served i {
   display: flex;
   flex-direction: column;
   gap: 25px;
+  width: 100%;
 }
 .ProgramDetails .text-achieved .text p {
   font-size: 18px;
