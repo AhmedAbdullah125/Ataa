@@ -51,14 +51,14 @@ export default function Header() {
                                     <p>{data.footer.mobile}</p>
                                 </Link>
                             </div>
-                            <div className="social-links-global">
+                            {data.footer.isocial&&<div className="social-links-global">
                                 {
                                     loading ? null :
                                         data.socialData.map((item, index) => (
                                             <Link scroll={true} href={item.value} key={index}><i className={`fa-brands fa-${item.type}`}></i></Link>
                                         ))
                                 }
-                            </div>
+                            </div>}
                         </div>
                     </div>
             }

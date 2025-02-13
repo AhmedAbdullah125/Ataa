@@ -56,6 +56,7 @@ export default function Header() {
     };
     getData();
   }, []);
+
   function handleToggleSerch() {
     let searchInput = document.getElementById('search');
     searchInput.classList.toggle('hidden')
@@ -90,12 +91,12 @@ export default function Header() {
 
               <div className="links">
                 <Link scroll={true} href="/" className={pathname === '/' || pathname === '' ? 'active' : ''}>الرئيسية</Link>
-                <Link scroll={true} href="/about" className={pathname === '/about' ? 'active' : ''}>من نحــن!</Link>
-                <Link scroll={true} href="/vision" className={pathname === '/vision' ? 'active' : ''}>الرؤية</Link>
-                <Link scroll={true} href="/message" className={pathname === '/message' ? 'active' : ''} >الرسالة</Link>
-                <Link scroll={true} href="/values" className={pathname === '/values' ? 'active' : ''} >القيم</Link>
-                <Link scroll={true} href="/programs" className={pathname === '/programs' ? 'active' : ''}>البرامج الخيرية</Link>
-                <Link scroll={true} href="/blogs" className={pathname === '/blogs' ? 'active' : ''} >المدونة</Link>
+                {data.footer.isAbout ? <Link scroll={true} href="/about" className={pathname === '/about' ? 'active' : ''}>من نحــن!</Link> : null}
+                {data.footer.isVision ? <Link scroll={true} href="/vision" className={pathname === '/vision' ? 'active' : ''}>الرؤية</Link> : null}
+                {data.footer.isMessage ? <Link scroll={true} href="/message" className={pathname === '/message' ? 'active' : ''} >الرسالة</Link> : null}
+                {data.footer.isValue ? <Link scroll={true} href="/values" className={pathname === '/values' ? 'active' : ''} >القيم</Link> : null}
+                {data.footer.isProgram ? <Link scroll={true} href="/programs" className={pathname === '/programs' ? 'active' : ''}>البرامج الخيرية</Link> : null}
+                {data.footer.isBlog ? <Link scroll={true} href="/blogs" className={pathname === '/blogs' ? 'active' : ''} >المدونة</Link> : null}
               </div>
               <div className="access">
                 {
@@ -116,12 +117,12 @@ export default function Header() {
               <div className="side-menu" onClick={handleClose}>
                 <div className="links" onClick={handleClose} >
                   <Link scroll={true} href="/" onClick={handleClose}>الرئيسية</Link>
-                  <Link scroll={true} href="/about" onClick={handleClose}>من نحــن!</Link>
-                  <Link scroll={true} href="/vision" onClick={handleClose}>الرؤية</Link>
-                  <Link scroll={true} href="/message" onClick={handleClose} >الرسالة</Link>
-                  <Link scroll={true} href="/values" onClick={handleClose} >القيم</Link>
-                  <Link scroll={true} href="/programs" onClick={handleClose}>البرامج الخيرية</Link>
-                  <Link scroll={true} href="/blogs" onClick={handleClose} >المدونة</Link>
+                  {data.footer.isAbout&&<Link scroll={true} href="/about" onClick={handleClose}>من نحــن!</Link>}
+                  {data.footer.isVision&&<Link scroll={true} href="/vision" onClick={handleClose}>الرؤية</Link>}
+                  {data.footer.isMessage&&<Link scroll={true} href="/message" onClick={handleClose} >الرسالة</Link>}
+                  {data.footer.isValue&&<Link scroll={true} href="/values" onClick={handleClose} >القيم</Link>}
+                  {data.footer.isProgram&&<Link scroll={true} href="/programs" onClick={handleClose}>البرامج الخيرية</Link>}
+                  {data.footer.isBlog&&<Link scroll={true} href="/blogs" onClick={handleClose} >المدونة</Link>}
                 </div>
               </div>
             </div>
