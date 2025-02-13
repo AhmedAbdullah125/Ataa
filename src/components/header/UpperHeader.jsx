@@ -8,7 +8,6 @@ import axios from 'axios';
 import { API_BASE_URL } from '@/lib/apiConfig';
 export default function Header() {
     const [data, setData] = useState([]);
-    const [contact, setContact] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -16,22 +15,16 @@ export default function Header() {
         const getData = async () => {
             try {
                 const response = await axios.get(`${API_BASE_URL}/settings`);
-                // const responseContact = await axios.get(`${API_BASE_URL}/contacts`);
                 let data = response.data.data;
-                // let dataContact = responseContact.data.data;
                 setData(data)
-                // setContact(dataContact)
                 setLoading(false)
             } catch (error) {
                 console.error('Error retrieving data:', error);
                 throw new Error('Could not get data');
-                setLoading(false)
             }
         };
         getData();
     }, []);
-
-
     return (
         <div className="uperHeader">
             {
@@ -51,14 +44,14 @@ export default function Header() {
                                     <p>{data.footer.mobile}</p>
                                 </Link>
                             </div>
-                            {data.footer.isocial&&<div className="social-links-global">
+                            {data.footer.isocial ? <div className="social-links-global">
                                 {
                                     loading ? null :
                                         data.socialData.map((item, index) => (
                                             <Link scroll={true} href={item.value} key={index}><i className={`fa-brands fa-${item.type}`}></i></Link>
                                         ))
                                 }
-                            </div>}
+                            </div> : null}
                         </div>
                     </div>
             }

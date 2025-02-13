@@ -35,12 +35,12 @@ export default function Maneger() {
             {loading ? <Loading></Loading> :
                 <>
                     <Hero />
-                    {data.footer.isAbout&&<HomeAbout />}
-                    {data.footer.isVision&&<HomeVision />}
-                    {data.footer.isMessage&&<HomeMessage />}
-                    {data.footer.isValue&&<HomeValues />}
-                    {data.footer.isProgram&&<HomePrograms />}
-                    {data.footer.isBlog&&<HomeBlogs />}
+                    {data.footer.isAbou?<HomeAbout />:null}
+                    {data.footer.isVision?<HomeVision />:null}
+                    {data.footer.isMessage?<HomeMessage />:null}
+                    {data.footer.isValue?<HomeValues />:null}
+                    {data.footer.isProgram?<HomePrograms />:null}
+                    {data.footer.isBlog?<HomeBlogs />:null}
                 </>
             }
         </main>

@@ -56,7 +56,7 @@ export default function Footer() { // Defining the main functional component nam
                                     <Image src={data.footer.logo} alt="Mazar" width={200} height={200} />
                                     <p>{data.footer.titleFooter}</p>
                                 </div>
-                                {data.footer.isProgram && <div className="links">
+                                {data.footer.isProgram ? <div className="links">
                                     <h3>الخدمات</h3>
                                     <div className="hagez"></div>
                                     <ul>
@@ -65,14 +65,14 @@ export default function Footer() { // Defining the main functional component nam
                                         <li><Link scroll={true} href="/programs">دعم الجمعيات والمشاريع التنموية</Link></li>
                                         <li><Link scroll={true} href="/programs">تطوير العمل الخيري ومؤسساته</Link></li>
                                     </ul>
-                                </div>}
+                                </div> :null}
                                 <div className="links">
                                     <h3>روابط سريعة</h3>
                                     <div className="hagez"></div>
                                     <ul>
                                         <li><Link scroll={true} href="/">الرئيسية</Link></li>
-                                        {data.footer.isAbout && <li><Link scroll={true} href="/about">من نحن</Link></li>}
-                                        {data.footer.isProgram && <li><Link scroll={true} href="/programs">البرامج الخيرية</Link></li>}
+                                        {data.footer.isAbout ? <li><Link scroll={true} href="/about">من نحن</Link></li> :null}
+                                        {data.footer.isProgram ? <li><Link scroll={true} href="/programs">البرامج الخيرية</Link></li>:null}
                                         <li><Link scroll={true} href="/contact">تواصل معنا</Link></li>
                                     </ul>
                                 </div>
@@ -89,13 +89,13 @@ export default function Footer() { // Defining the main functional component nam
                             </div>
                             <div className="lowerFooter">
                                 <Link scroll={true} href={"/terms"}>الشروط والاحكام</Link>
-                                {data.footer.isocial&&<div className="social-links-global">
+                                {data.footer.isocial?<div className="social-links-global">
                                     {
                                         data.socialData.map((item, index) => (
                                             <Link scroll={true} href={item.value} key={index}><i className={`fa-brands fa-${item.type}`}></i></Link>
                                         ))
                                     }
-                                </div>}
+                                </div>:null}
                                 <Link scroll={true} href={"/policy"}>سياسة الخصوصية</Link>
                             </div>
                         </div>

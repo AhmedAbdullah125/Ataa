@@ -117,12 +117,12 @@ export default function Header() {
               <div className="side-menu" onClick={handleClose}>
                 <div className="links" onClick={handleClose} >
                   <Link scroll={true} href="/" onClick={handleClose}>الرئيسية</Link>
-                  {data.footer.isAbout&&<Link scroll={true} href="/about" onClick={handleClose}>من نحــن!</Link>}
-                  {data.footer.isVision&&<Link scroll={true} href="/vision" onClick={handleClose}>الرؤية</Link>}
-                  {data.footer.isMessage&&<Link scroll={true} href="/message" onClick={handleClose} >الرسالة</Link>}
-                  {data.footer.isValue&&<Link scroll={true} href="/values" onClick={handleClose} >القيم</Link>}
-                  {data.footer.isProgram&&<Link scroll={true} href="/programs" onClick={handleClose}>البرامج الخيرية</Link>}
-                  {data.footer.isBlog&&<Link scroll={true} href="/blogs" onClick={handleClose} >المدونة</Link>}
+                  {data.footer.isAbout?<Link scroll={true} href="/about" onClick={handleClose}>من نحــن!</Link>:null}
+                  {data.footer.isVisio?<Link scroll={true} href="/vision" onClick={handleClose}>الرؤية</Link>:null}
+                  {data.footer.isMessag?<Link scroll={true} href="/message" onClick={handleClose} >الرسالة</Link>:null}
+                  {data.footer.isValu?<Link scroll={true} href="/values" onClick={handleClose} >القيم</Link>:null}
+                  {data.footer.isProgra?<Link scroll={true} href="/programs" onClick={handleClose}>البرامج الخيرية</Link>:null}
+                  {data.footer.isBlo?<Link scroll={true} href="/blogs" onClick={handleClose} >المدونة</Link>:null}
                 </div>
               </div>
             </div>
