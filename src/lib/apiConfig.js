@@ -1,4 +1,4 @@
-const API_BASE_URL = 'https://alataa-panel.alataa-int.com/api';
+const API_BASE_URL = 'https://voluntary.subcodeco.com/api';
 
 const API_ENDPOINTS = {
   REGISTER: '/auth/register',
