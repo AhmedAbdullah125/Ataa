@@ -89,6 +89,9 @@
             gap: 5px;
             margin-bottom: 0;
             color: $white;
+            &:hover{
+                background-color: $hover;
+            }
 
             span {
                 color: $white;

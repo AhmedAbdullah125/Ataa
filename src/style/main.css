@@ -1096,6 +1096,10 @@ footer .served i {
   color: var(--black-color);
   font-size: 12px;
 }
+.social-links-global i:hover {
+  background-color: var(--main-color);
+  color: var(--white-color);
+}
 
 .Hero-Slide {
   width: 100%;
@@ -1180,6 +1184,9 @@ footer .served i {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+.Hero-Slide .overlay .watch-link:hover {
+  background-color: var(--main-color);
 }
 @media (max-width: 767px) {
   .Hero-Slide .overlay .watch-link {
@@ -1379,6 +1386,9 @@ footer .served i {
   gap: 5px;
   margin-bottom: 0;
   color: var(--white-color);
+}
+.home-about-section .text-sec a:hover {
+  background-color: var(--main-hover);
 }
 .home-about-section .text-sec a span {
   color: var(--white-color);
@@ -1732,6 +1742,9 @@ footer .served i {
   align-items: center;
   margin-bottom: 0;
 }
+.filter .tab:hover {
+  background-color: var(--main-hover);
+}
 .filter .tab span {
   font-size: 12px;
   font-weight: 700;
@@ -1750,6 +1763,9 @@ footer .served i {
   gap: 5px;
   margin-bottom: 0;
   color: var(--white-color);
+}
+.filter .btn-watch:hover {
+  background-color: var(--main-hover);
 }
 .filter .btn-watch span {
   color: var(--white-color);
@@ -1795,6 +1811,14 @@ footer .served i {
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  padding: 10px;
+  border-radius: 8px;
+}
+.prog-item:hover {
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+}
+.prog-item:hover .prog-img img {
+  transform: scale(1.1);
 }
 .prog-item .prog-img {
   position: relative;
@@ -1861,6 +1885,9 @@ footer .served i {
   margin-bottom: 0;
   position: relative;
   z-index: 2;
+}
+.prog-item .prog-img .overlay .a-cont a:hover {
+  background-color: var(--main-hover);
 }
 @media screen and (max-width: 767px) {
   .prog-item .prog-img .overlay .a-cont a {
