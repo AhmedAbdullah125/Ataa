@@ -1,20 +1,19 @@
 'use client'
 import React, { useEffect, useState } from 'react'; // Importing React to use JSX syntax and create components.
-import GreenPageTitle from '@/components/sharing/GreenPageTitle';
 import Image from 'next/image';
-import img1 from '/public/blogs/1.png'
-import img2 from '/public/blogs/2.png'
-import img3 from '/public/blogs/3.png'
 import LogOutIcon from '/public/icons/logoutgreen.svg';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import Breadcrumb from '@/components/sharing/BreadCrumb';
 import { useSearchParams } from 'next/navigation';
 import axios from 'axios';
 import Loading from '@/app/loading';
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import { API_BASE_URL } from '@/lib/apiConfig';
 export default function Blog() { // Defining the main functional component named 'Footer'.
-
 
     const searchParams = useSearchParams()
     const [pathId, setPathId] = useState(searchParams.get('id'))
@@ -44,6 +43,8 @@ export default function Blog() { // Defining the main functional component named
         getProgram();
 
     }, [pathId]);
+    console.log(blog);
+
     return (
         <div className="single-blog">
             {
@@ -56,9 +57,50 @@ export default function Blog() { // Defining the main functional component named
                             subtitleUrl={''}         // URL for the subtitle (if applicable, empty in this case)
                         />
                         <div className="single-cont">
-                            <div className="img-cont">
-                                <Image src={blog.image} alt="Ataa" width={1000} height={1000} />
-                            </div>
+
+                            <Swiper
+                                // navigation
+                                pagination={{ type: "bullets", clickable: true }}
+                                spaceBetween={0}
+                                slidesPerView={1}
+                                autoplay={false}
+                                dir='ltr'
+                                loop={true}
+                                modules={[Autoplay, Navigation, Pagination]}
+                                breakpoints={{
+                                    1400: {
+                                        slidesPerView: 1,
+                                    },
+                                    1100: {
+                                        slidesPerView: 1,
+                                    },
+                                    767: {
+                                        slidesPerView: 1,
+                                    },
+                                    768: {
+                                        slidesPerView: 1,
+                                    },
+                                    640: {
+                                        slidesPerView: 1,
+                                    },
+                                    100: {
+                                        slidesPerView: 1,
+                                    }
+                                }}
+                            >
+
+                                {
+                                    blog.images.map((img, index) => (
+                                        <SwiperSlide key={index}>
+                                            <div className="img-cont">
+                                                <Image src={img} alt="Ataa" width={1000} height={1000} />
+                                            </div>
+                                        </SwiperSlide>
+                                    ))
+                                }
+
+                            </Swiper>
+
                             {
                                 blog.blogItems.map((item, index) =>
                                     <div className="para" key={index}>
@@ -77,32 +119,32 @@ export default function Blog() { // Defining the main functional component named
                             </div>
                             <div className="progs-grid grid">
                                 {
-                                    blogs.map((item) =>
+                                    blogs.map((item, index) =>
 
                                         item.id != blog.id ?
-                                        <motion.div
-                                            initial={{ opacity: 0, scale: 0.9 }}
-                                            animate={{ opacity: 1, scale: 1 }}
-                                            transition={{ type: "spring", stiffness: 100, damping: 15 }}
-                                            className="prog-item" key={item.id}>
-                                            <div className="prog-img">
-                                                <Image src={item.image} alt={item.metaTitle} width={100} height={100} />
-
-                                            </div>
-                                            <div className="blog-details">
-                                                <div className="date-read">
-                                                    <span>{item.createdAt}</span><div className="bullet"></div><span>{item.timeReading} دقائق قراءة</span><div className="bullet"></div><span>{item.view || 0}<i className="fa-solid fa-eye"></i></span>
+                                            <motion.div
+                                                initial={{ opacity: 0, scale: 0.9 }}
+                                                animate={{ opacity: 1, scale: 1 }}
+                                                transition={{ type: "spring", stiffness: 100, damping: 15 }}
+                                                className="prog-item" key={index}>
+                                                <div className="prog-img">
+                                                    <Image src={item.image} alt={item.metaTitle} width={100} height={100} />
 
                                                 </div>
-                                                <h2>{item.name}</h2>
-                                                <p>{item.description}</p>
-                                                <div className='read-link' scroll={true} href={`/blog?id=${item.slug}`} onClick={() => {
-                                                    window.scrollTo(0, 0);
-                                                    setPathId(item.slug)
+                                                <div className="blog-details">
+                                                    <div className="date-read">
+                                                        <span>{item.createdAt}</span><div className="bullet"></div><span>{item.timeReading} دقائق قراءة</span><div className="bullet"></div><span>{item.view || 0}<i className="fa-solid fa-eye"></i></span>
+
+                                                    </div>
+                                                    <h2>{item.name}</h2>
+                                                    <p>{item.description}</p>
+                                                    <div className='read-link' scroll={true} href={`/blog?id=${item.slug}`} onClick={() => {
+                                                        window.scrollTo(0, 0);
+                                                        setPathId(item.slug)
                                                     }} ><span>قراءة المزيد </span><Image src={LogOutIcon} alt="logout" /></div>
-                                            </div>
-                                        </motion.div>
-                                        : null
+                                                </div>
+                                            </motion.div>
+                                            : null
                                     )
                                 }
                             </div>

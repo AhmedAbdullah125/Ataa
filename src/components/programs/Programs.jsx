@@ -24,13 +24,20 @@ export default function Programs() { // Defining the main functional component n
                 setprograms(data)
                 setLoading(false)
                 let tabs = [];
+
                 for (let i = 0; i < data.length; i++) {
-                    tabs.push({
-                        name: data[i].categoryName,
-                        id: data[i].categoryId
-                    })
+                    const { categoryName, categoryId } = data[i];
+                    const exists = tabs.some(tab => tab.id === categoryId);
+                    if (!exists) {
+                        
+                        tabs.push({
+                            name: categoryName,
+                            id: categoryId
+                        });
+                    }
                 }
-                setTabs(tabs)
+
+                setTabs(tabs);
             } catch (error) {
                 console.error('Error retrieving data:', error);
                 throw new Error('Could not get data');

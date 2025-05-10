@@ -29,13 +29,19 @@ export default function HomePrograms() { // Defining the main functional compone
                 setprograms(data)
                 setLoading(false)
                 let tabs = [];
+
                 for (let i = 0; i < data.length; i++) {
-                    tabs.push({
-                        name: data[i].categoryName,
-                        id: data[i].categoryId
-                    })
+                    const { categoryName, categoryId } = data[i];
+                    const exists = tabs.some(tab => tab.id === categoryId);
+                    if (!exists) {
+                        tabs.push({
+                            name: categoryName,
+                            id: categoryId
+                        });
+                    }
                 }
-                setTabs(tabs)
+
+                setTabs(tabs);
             } catch (error) {
                 console.error('Error retrieving data:', error);
                 throw new Error('Could not get data');
@@ -45,8 +51,8 @@ export default function HomePrograms() { // Defining the main functional compone
         getPrograms();
 
     }, []);
-    
-    
+
+
     return (
         <section className='home-message-section home-programs-section has-orbits'>
             <div className="overlay">
@@ -81,8 +87,8 @@ export default function HomePrograms() { // Defining the main functional compone
                                             <span>الكل</span>
                                         </div>
                                         {
-                                            tabs.map((tab) =>
-                                                <div className={`tab ${activeTab === tab.id ? "activeTab" : ""}`} onClick={() => setActiveTab(tab.id)} key={tab.id}>
+                                            tabs.map((tab, index) =>
+                                                <div className={`tab ${activeTab === tab.id ? "activeTab" : ""}`} onClick={() => setActiveTab(tab.id)} key={index}>
                                                     <span>{tab.name}</span>
                                                 </div>
                                             )

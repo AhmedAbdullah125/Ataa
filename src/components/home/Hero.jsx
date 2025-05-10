@@ -6,7 +6,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Image from 'next/image';
-import heroImg from '/public/Hero/hero.jpg'
 import logoutImage from '/public/icons/logout.svg'
 import Link from 'next/link';
 import { AvatarCircles } from '../ui/avatar-circles';

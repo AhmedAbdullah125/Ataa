@@ -28,7 +28,6 @@ export default function Maneger() {
         };
         getData();
     }, []);
-    console.log(data);
     
     return (
         <main className='flex flex-col md:gap-36 gap-14'>

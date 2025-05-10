@@ -13,12 +13,7 @@ import axios from 'axios';
 import { API_BASE_URL } from '@/lib/apiConfig';
 
 export default function Blog() { // Defining the main functional component named 'Footer'.
-    let data = [
-        { id: 1, name: "تســـويق مبــــاشر", img: img1, category: "برنامج السلال الغذائية", categId: 2 },
-        { id: 2, name: "تســـويق مبــــاشر", img: img2, category: "البرامج التنموية", categId: 3 },
-        { id: 3, name: "تســـويق مبــــاشر", img: img3, category: "البرامج الصحية", categId: 4 },
 
-    ]
     let [blogs, setBlogs] = useState([]);
     let [loading, setLoading] = useState(true);
 
@@ -40,6 +35,7 @@ export default function Blog() { // Defining the main functional component named
         getBlogs();
 
     }, []);
+    
     return (
         <div className="about has-green-title">
             <GreenPageTitle firstPArt={"المد"} secondPart={"و"} thirdPart={"نـــــة ."} />
@@ -55,13 +51,13 @@ export default function Blog() { // Defining the main functional component named
                     loading ? <Loading /> :
                         <div className="progs-grid">
                             {
-                                blogs.map((item) =>
+                                blogs.map((item , index) =>
 
                                     <motion.div
                                         initial={{ opacity: 0, scale: 0.9 }}
                                         animate={{ opacity: 1, scale: 1 }}
                                         transition={{ type: "spring", stiffness: 100, damping: 15 }}
-                                        className="prog-item" key={item.id}>
+                                        className="prog-item" key={index}>
                                         <div className="prog-img">
                                             <Image src={item.image} alt={item.metaTitle} width={100} height={100} />
 
