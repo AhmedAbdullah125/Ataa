@@ -9,6 +9,7 @@ import Loading from '@/app/loading'
 import img1 from '/public/blogs/1.png'
 import img2 from '/public/blogs/2.png'
 import img3 from '/public/blogs/3.png'
+import Gallery from './Gallery'
 export default function AchievementWraper() { // Defining the main functional component named 'Footer'.
 
 
@@ -53,7 +54,7 @@ export default function AchievementWraper() { // Defining the main functional co
  قمنا بفضل الله بانجاز هذه المشاريع والانجـــازات متوكلين علي الله والحمد لله علي اتمامه علينا النعمه واسباغه الفضل ومنحه الاخلاص
  `
         ,
-        images: [img1, img2, img3],
+        images: [img1, img2, img3, img1, img2, img3],
 
 
     }
@@ -69,9 +70,8 @@ export default function AchievementWraper() { // Defining the main functional co
                             subtitleUrl={''}         // URL for the subtitle (if applicable, empty in this case)
                         />
                         <AchievementBanner data={achievement} />
-                        
-                        {/* <ProgramDetails data={program} />
-                        <ProrgamLikes data={programs} categoryId={program.categoryId} programId={program.id}/> */}
+                        <Gallery data={achievement} />
+                       
                     </>
             }
 
