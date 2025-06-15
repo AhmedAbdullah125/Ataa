@@ -772,6 +772,10 @@ footer .content .logo {
 }
 footer .content .logo img {
   height: 108px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: right;
+     object-position: right;
 }
 footer .content .logo p {
   font-size: 16px;

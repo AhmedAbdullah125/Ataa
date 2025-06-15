@@ -21,6 +21,9 @@ footer {
 
             img {
                 height: 108px;
+                object-fit: contain;
+                //position in the right
+                object-position: right;
             }
 
             p {

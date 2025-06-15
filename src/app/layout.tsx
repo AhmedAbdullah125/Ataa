@@ -22,11 +22,11 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: "Ataa",
       description: 'مؤسسة العطاء والتنمية الوقفية مؤسسة لا ربحية تعمل في مجال إدارة وتطوير واستشارات الأوقاف ، للقائمين عليها خبرة في هذا المجال تمتد لسنوات عديدة ، تحقق خلالها ولله الحمد نجاحات متميزة في مجال تمكين الواقفين من الاستفادة القصوى من أوقافهم...',
-      url: 'https://ataa-beryl.vercel.app/',
+      url: 'https://www.alataa-int.com/',
       siteName: "Ataa",
       images: [
         {
-      url: logo.src, // this does not apear in the preview while sharing the page
+      url: 'https://www.alataa-int.com/_next/image?url=https%3A%2F%2Falataa-panel.alataa-int.com%2Fstorage%2Fuploads%2Fimages%2F01JSKWW8SGCD3FYV4JJG4VF5T2.jpeg&w=256&q=75', // this does not apear in the preview while sharing the page
       width: 1200,
       height: 630,
       alt: 'Horizon',
