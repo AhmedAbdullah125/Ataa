@@ -1806,6 +1806,10 @@ footer .served i {
   }
 }
 
+.prog-item:hover img {
+  transform: scale(1.1);
+}
+
 .prog-item {
   display: flex;
   flex-direction: column;
@@ -1813,12 +1817,6 @@ footer .served i {
   gap: 20px;
   padding: 10px;
   border-radius: 8px;
-}
-.prog-item:hover {
-  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
-}
-.prog-item:hover .prog-img img {
-  transform: scale(1.1);
 }
 .prog-item .prog-img {
   position: relative;

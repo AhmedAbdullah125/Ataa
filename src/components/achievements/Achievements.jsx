@@ -2,11 +2,13 @@
 import React, { useEffect, useState } from 'react'; // Importing React to use JSX syntax and create components.
 import GreenPageTitle from '@/components/sharing/GreenPageTitle';
 import Image from 'next/image';
-import LogoutIcon from '/public/icons/logout.svg'
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import axios from 'axios';
 import { API_BASE_URL } from '@/lib/apiConfig';
+import img1 from '/public/blogs/1.png'
+import img2 from '/public/blogs/2.png'
+import img3 from '/public/blogs/3.png'
 
 export default function Achievements() { // Defining the main functional component named 'Footer'.
 
@@ -29,7 +31,7 @@ export default function Achievements() { // Defining the main functional compone
                     const { categoryName, categoryId } = data[i];
                     const exists = tabs.some(tab => tab.id === categoryId);
                     if (!exists) {
-                        
+
                         tabs.push({
                             name: categoryName,
                             id: categoryId
@@ -47,7 +49,13 @@ export default function Achievements() { // Defining the main functional compone
         getPrograms();
 
     }, []);
-    
+
+    const achievements = [
+        { id: 1, title: "إعمار بيوت الله", categoryName: "اعمال", categoryId: 1, image: img1 },
+        { id: 2, title: "بيوت الله", categoryName: "اعمال", categoryId: 1, image: img2 },
+        { id: 3, title: "بيوت الله", categoryName: "اعمال", categoryId: 1, image: img3 },
+    ]
+
     return (
         <div className="about has-green-title">
             <GreenPageTitle firstPArt={"إنجـــــ"} secondPart={"ــــاتنا "} thirdPart={" !."} />
@@ -81,25 +89,30 @@ export default function Achievements() { // Defining the main functional compone
                     </div>
                     <div className="progs-grid">
                         {
-                            programs.map((item) =>
+                            achievements.map((item) =>
                                 activeTab === item.categoryId || activeTab === 0 ?
-                                    <motion.div
-                                        initial={{ opacity: 0, scale: 0.9 }}
-                                        animate={{ opacity: 1, scale: 1 }}
-                                        transition={{ type: "spring", stiffness: 100, damping: 15 }}
-                                        className="prog-item" key={item.id}>
-                                        <div className="prog-img">
-                                            <Image src={item.thumbnail} alt="logout" width={100} height={100} />
-                                            <div className="overlay">
-                                                <span>{item.categoryName}</span>
-                                                <div className="a-cont"><Link scroll={true} href={"/program?id=" + item.slug} className={"arrow"}><i className="fa-solid fa-arrow-up"></i></Link></div>
+                                    <Link href={`/achievements?id=${item.id}`} key={item.id}>
+                                        <motion.div
+                                            initial={{ opacity: 0, scale: 0.9 }}
+                                            animate={{ opacity: 1, scale: 1 }}
+                                            transition={{ type: 'spring', stiffness: 100, damping: 15 }}
+                                            className="prog-item"
+                                        >
+                                            <div className="prog-img">
+                                                <Image src={item.image} alt="logout" width={100} height={100} />
+                                                <div className="overlay"></div>
                                             </div>
-                                        </div>
-                                        <div className="prog-info">
-                                            <h3>{item.name}</h3>
-                                            <span>{item.title}</span>
-                                        </div>
-                                    </motion.div>
+                                            <div className="prog-info w-full px-4">
+                                                <div className="flex items-center justify-between w-full">
+                                                    <span>{item.title}</span>
+                                                    <h3>{item.categoryName}</h3>
+                                                </div>
+                                                <p>
+                                                    قمنا بفضل الله بانجاز هذه المشاريع والانجـــازات متوكلين علي الله والحمد لله علي اتمامه علينا النعمه واسباغه الفضل ومنحه الاخلاص
+                                                </p>
+                                            </div>
+                                        </motion.div>
+                                    </Link>
                                     : null
                             )
                         }
