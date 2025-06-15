@@ -24,14 +24,14 @@ export async function generateMetadata(): Promise<Metadata> {
       description: 'مؤسسة العطاء والتنمية الوقفية مؤسسة لا ربحية تعمل في مجال إدارة وتطوير واستشارات الأوقاف ، للقائمين عليها خبرة في هذا المجال تمتد لسنوات عديدة ، تحقق خلالها ولله الحمد نجاحات متميزة في مجال تمكين الواقفين من الاستفادة القصوى من أوقافهم...',
       url: 'https://ataa-beryl.vercel.app/',
       siteName: "Ataa",
-      // images: [
-      //   {
-      //     url: {logo.src},
-      //     width: 1200,
-      //     height: 630,
-      //     alt: 'Ataa',
-      //   },
-      // ],
+      images: [
+        {
+      url: logo.src, // this does not apear in the preview while sharing the page
+      width: 1200,
+      height: 630,
+      alt: 'Horizon',
+        },
+      ],
       type: 'website',
       locale: 'ar_EG',
     },
