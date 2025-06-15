@@ -97,6 +97,7 @@ export default function Header() {
                 {data.footer.isValue ? <Link scroll={true} href="/values" className={pathname === '/values' ? 'active' : ''} >القيم</Link> : null}
                 {data.footer.isProgram ? <Link scroll={true} href="/programs" className={pathname === '/programs' ? 'active' : ''}>البرامج الخيرية</Link> : null}
                 {data.footer.isBlog ? <Link scroll={true} href="/blogs" className={pathname === '/blogs' ? 'active' : ''} >المدونة</Link> : null}
+                <Link scroll={true} href="/achievements" className={pathname === '/achievements' ? 'active' : ''} >أنجازاتنا</Link> 
               </div>
               <div className="access">
                 {
@@ -123,6 +124,7 @@ export default function Header() {
                   {data.footer.isValu?<Link scroll={true} href="/values" onClick={handleClose} >القيم</Link>:null}
                   {data.footer.isProgra?<Link scroll={true} href="/programs" onClick={handleClose}>البرامج الخيرية</Link>:null}
                   {data.footer.isBlo?<Link scroll={true} href="/blogs" onClick={handleClose} >المدونة</Link>:null}
+                  <Link scroll={true} href="/achievements" onClick={handleClose} >أنجازاتنا</Link>
                 </div>
               </div>
             </div>
