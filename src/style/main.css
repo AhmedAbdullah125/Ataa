@@ -1933,6 +1933,17 @@ footer .served i {
   margin-bottom: 0;
   color: var(--white-color);
 }
+.prog-item .prog-info p {
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 0;
+  color: var(--black-color);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
 .prog-item h3 {
   width: -moz-fit-content;
   width: fit-content;
@@ -2007,7 +2018,8 @@ footer .served i {
   text-align: justify;
   margin-bottom: 0;
 }
-.blog-details a, .blog-details .read-link {
+.blog-details a,
+.blog-details .read-link {
   display: flex;
   align-items: center;
   gap: 5px;
@@ -2093,34 +2105,35 @@ footer .served i {
   -o-object-fit: cover;
      object-fit: cover;
 }
-.single-blog .single-cont .para {
+
+.para {
   display: flex;
-  margin-top: 70px;
+  margin-top: 40px;
   flex-direction: column;
   gap: 40px;
 }
 @media screen and (max-width: 767px) {
-  .single-blog .single-cont .para {
+  .para {
     gap: 20px;
   }
 }
-.single-blog .single-cont .para h2 {
+.para h2 {
   font-size: 56px;
   font-weight: 800;
   margin-bottom: 0;
   color: var(--main-color);
 }
 @media screen and (max-width: 1025px) {
-  .single-blog .single-cont .para h2 {
+  .para h2 {
     font-size: 40px;
   }
 }
 @media screen and (max-width: 767px) {
-  .single-blog .single-cont .para h2 {
+  .para h2 {
     font-size: 24px;
   }
 }
-.single-blog .single-cont .para p {
+.para p {
   font-size: 18px;
   font-weight: 500;
   line-height: 45px;
@@ -2128,13 +2141,13 @@ footer .served i {
   text-align: justify;
 }
 @media screen and (max-width: 1025px) {
-  .single-blog .single-cont .para p {
+  .para p {
     font-size: 16px;
     line-height: 32px;
   }
 }
 @media screen and (max-width: 767px) {
-  .single-blog .single-cont .para p {
+  .para p {
     font-size: 14px;
   }
 }
@@ -2406,6 +2419,19 @@ footer .served i {
 }
 .ProgramDetails .text-achieved .achived .donate-link img {
   height: 16px;
+}
+
+.achievement-banner {
+  width: 100%;
+  aspect-ratio: 1680/661;
+  overflow: hidden;
+  border-radius: 90px;
+}
+.achievement-banner img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .contact-form {

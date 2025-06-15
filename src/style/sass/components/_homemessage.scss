@@ -96,7 +96,7 @@
 .home-message-section {
     .messege-cont {
         padding: 100px 0;
-       
+
         .title {
             display: flex;
             flex-direction: column;
@@ -161,7 +161,7 @@
         background-color: $white;
         display: flex;
         flex-direction: column;
-       
+
         * {
             flex-shrink: 0;
         }
@@ -247,7 +247,7 @@
 }
 
 .home-programs-section {
-display: flex;
+    display: flex;
 }
 
 .filter {
@@ -270,19 +270,22 @@ display: flex;
         gap: 2px;
         flex-wrap: nowrap;
         cursor: pointer;
+
         .activeTab {
             background-color: $hover;
-            
+
             span {
                 color: $white;
             }
         }
     }
+
     .tab:nth-child(1) {
         border-radius: 0 40px 40px 0;
     }
+
     .tab:last-child {
-        border-radius: 40px 0 0  40px;
+        border-radius: 40px 0 0 40px;
     }
 
     .tab {
@@ -292,7 +295,8 @@ display: flex;
         display: flex;
         align-items: center;
         margin-bottom: 0;
-        &:hover{
+
+        &:hover {
             background-color: $hover;
         }
 
@@ -316,7 +320,8 @@ display: flex;
         gap: 5px;
         margin-bottom: 0;
         color: $white;
-        &:hover{
+
+        &:hover {
             background-color: $hover;
 
         }
@@ -340,9 +345,11 @@ display: flex;
         justify-content: center;
 
     }
+
     .tab {
         background-color: $main;
-        span{
+
+        span {
             color: $white;
 
         }
@@ -354,6 +361,7 @@ display: flex;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 30px;
     row-gap: 60px;
+
     @media screen and (max-width: 1025px) {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -363,9 +371,11 @@ display: flex;
     }
 
 }
-.prog-item:hover  img  {
+
+.prog-item:hover img {
     transform: scale(1.1);
 }
+
 .prog-item {
     display: flex;
     flex-direction: column;
@@ -373,13 +383,14 @@ display: flex;
     gap: 20px;
     padding: 10px;
     border-radius: 8px;
-    
+
     .prog-img {
         position: relative;
         width: 100%;
         aspect-ratio: 541/409;
         border-radius: 90px;
         overflow: hidden;
+
         @media screen and (max-width: 767px) {
             border-radius: 30px;
             overflow: hidden;
@@ -410,6 +421,7 @@ display: flex;
             justify-content: space-between;
             background-color: rgba(0, 0, 0, .2);
             padding: 45px 45px 40px 40px;
+
             @media screen and (max-width: 767px) {
                 padding: 15px;
             }
@@ -440,14 +452,17 @@ display: flex;
                     margin-bottom: 0;
                     position: relative;
                     z-index: 2;
-                    &:hover{
+
+                    &:hover {
                         background-color: $hover;
                     }
+
                     @media screen and (max-width: 767px) {
                         width: 30px;
                         height: 30px;
-                        
+
                     }
+
                     i {
                         font-size: 18px;
                         transform: rotate(315deg);
@@ -472,11 +487,12 @@ display: flex;
                 padding: 0 15px;
                 position: relative;
                 z-index: 2;
+
                 @media screen and (max-width: 767px) {
                     padding: 0 10px;
                     font-size: 10px;
 
-                    
+
                 }
             }
         }
@@ -493,6 +509,18 @@ display: flex;
             font-weight: 700;
             margin-bottom: 0;
             color: $white;
+        }
+
+        p {
+            font-size: 14px;
+            font-weight: 400;
+            margin-bottom: 0;
+            color: $black;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
         }
 
     }
@@ -516,26 +544,31 @@ display: flex;
         text-wrap: nowrap;
     }
 }
-.has-green-title{
-    .progs-grid{
+
+.has-green-title {
+    .progs-grid {
         display: grid;
     }
-    .prog-item{
-        h3{
+
+    .prog-item {
+        h3 {
             background-color: $main;
             color: $white;
         }
-        span{
+
+        span {
             color: $main;
         }
     }
 }
+
 .blog-details {
     display: flex;
     flex-direction: column;
     gap: 25px;
     padding: 10px 15px 0 50px;
     flex-wrap: wrap;
+
     @media screen and (max-width: 767px) {
         padding: 10px 10px 0 10px;
     }
@@ -578,7 +611,8 @@ display: flex;
         margin-bottom: 0;
     }
 
-    a,.read-link {
+    a,
+    .read-link {
         display: flex;
         align-items: center;
         gap: 5px;

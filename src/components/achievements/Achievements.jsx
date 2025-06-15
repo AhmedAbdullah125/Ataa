@@ -51,9 +51,9 @@ export default function Achievements() { // Defining the main functional compone
     }, []);
 
     const achievements = [
-        { id: 1, title: "إعمار بيوت الله", categoryName: "اعمال", categoryId: 1, image: img1 },
+        { id: 1, title: "إعمار بيوت الله", categoryName: "البرامج التنموية", categoryId: 1, image: img1 },
         { id: 2, title: "بيوت الله", categoryName: "اعمال", categoryId: 1, image: img2 },
-        { id: 3, title: "بيوت الله", categoryName: "اعمال", categoryId: 1, image: img3 },
+        { id: 3, title: "بيوت الله", categoryName: "البرامج التنموية", categoryId: 1, image: img3 },
     ]
 
     return (
@@ -91,7 +91,7 @@ export default function Achievements() { // Defining the main functional compone
                         {
                             achievements.map((item) =>
                                 activeTab === item.categoryId || activeTab === 0 ?
-                                    <Link href={`/achievements?id=${item.id}`} key={item.id}>
+                                    <Link href={`/achievement?id=${item.id}`} key={item.id}>
                                         <motion.div
                                             initial={{ opacity: 0, scale: 0.9 }}
                                             animate={{ opacity: 1, scale: 1 }}
@@ -107,9 +107,7 @@ export default function Achievements() { // Defining the main functional compone
                                                     <span>{item.title}</span>
                                                     <h3>{item.categoryName}</h3>
                                                 </div>
-                                                <p>
-                                                    قمنا بفضل الله بانجاز هذه المشاريع والانجـــازات متوكلين علي الله والحمد لله علي اتمامه علينا النعمه واسباغه الفضل ومنحه الاخلاص
-                                                </p>
+                                                <p>قمنا بفضل الله بانجاز هذه المشاريع والانجـــازات متوكلين علي الله والحمد لله علي اتمامه علينا النعمه واسباغه الفضل ومنحه الاخلاص</p>
                                             </div>
                                         </motion.div>
                                     </Link>

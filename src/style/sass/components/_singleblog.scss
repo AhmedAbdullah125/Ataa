@@ -53,10 +53,13 @@
                 object-fit: cover;
             }
         }
+    }
+    
+}
 
         .para {
             display: flex;
-            margin-top: 70px;
+            margin-top: 40px;
             flex-direction: column;
             gap: 40px;
 
@@ -96,9 +99,6 @@
                 }
             }
         }
-    }
-
-}
 
 .bead-cramp {
     p {
