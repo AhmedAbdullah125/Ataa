@@ -53,7 +53,7 @@ export default function Footer() { // Defining the main functional component nam
                         <div className="container m-auto" id='footer'>
                             <div className="content">
                                 <div className="logo">
-                                    <Image src={data.footer.logo} alt="Mazar" width={200} height={200} />
+                                    <Image src={data.footer.logo} alt="Ataa" width={200} height={200} />
                                     <p>{data.footer.titleFooter}</p>
                                 </div>
                                 {data.footer.isProgram ? <div className="links">

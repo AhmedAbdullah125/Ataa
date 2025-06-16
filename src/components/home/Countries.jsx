@@ -18,7 +18,7 @@ export default function Countries() { // Defining the main functional component 
         return (
             <figure className={cn()} >
                 <div className="part-cont" >
-                    <Image src={img} alt="Mazar" width={200} height={200} />
+                    <Image src={img} alt="Ataa" width={200} height={200} />
                 </div>
             </figure>
         );

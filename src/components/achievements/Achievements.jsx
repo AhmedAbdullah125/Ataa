@@ -9,21 +9,23 @@ import { API_BASE_URL } from '@/lib/apiConfig';
 import img1 from '/public/blogs/1.png'
 import img2 from '/public/blogs/2.png'
 import img3 from '/public/blogs/3.png'
+import Loading from '@/app/loading';
 
 export default function Achievements() { // Defining the main functional component named 'Footer'.
 
     const [activeTab, setActiveTab] = useState(0);
     const [tabs, setTabs] = useState([])
-    let [programs, setprograms] = useState([]);
+    let [data, setData] = useState([]);
+    const [achievements, setAchievements] = useState([]);
     let [loading, setLoading] = useState(true);
 
     useEffect(() => {
         setLoading(true)
         const getPrograms = async () => {
             try {
-                const response = await axios.get(`${API_BASE_URL}/programs`);
+                const response = await axios.get(`${API_BASE_URL}/achievements`);
                 let data = response.data.data;
-                setprograms(data)
+                setAchievements(data)
                 setLoading(false)
                 let tabs = [];
 
@@ -49,12 +51,13 @@ export default function Achievements() { // Defining the main functional compone
         getPrograms();
 
     }, []);
+    console.log(data);
 
-    const achievements = [
-        { id: 1, title: "إعمار بيوت الله", categoryName: "البرامج التنموية", categoryId: 1, image: img1 },
-        { id: 2, title: "بيوت الله", categoryName: "اعمال", categoryId: 1, image: img2 },
-        { id: 3, title: "بيوت الله", categoryName: "البرامج التنموية", categoryId: 1, image: img3 },
-    ]
+    // const achievements = [
+    //     { id: 1, title: "إعمار بيوت الله", categoryName: "البرامج التنموية", categoryId: 1, image: img1 },
+    //     { id: 2, title: "بيوت الله", categoryName: "اعمال", categoryId: 1, image: img2 },
+    //     { id: 3, title: "بيوت الله", categoryName: "البرامج التنموية", categoryId: 1, image: img3 },
+    // ]
 
     return (
         <div className="about has-green-title">
@@ -70,51 +73,37 @@ export default function Achievements() { // Defining the main functional compone
 
             <section className='home-message-section home-programs-section w-full'>
                 <div className="container m-auto">
-
-                    <div className="filter">
-                        <div className="tabs-parent">
-                            <div className="tabs">
-                                <div className={`tab ${activeTab === 0 ? "activeTab" : ""}`} onClick={() => setActiveTab(0)}>
-                                    <span>الكل</span>
-                                </div>
+                    {
+                        loading ? <Loading /> :
+                            <div className="progs-grid">
                                 {
-                                    tabs.map((tab) =>
-                                        <div className={`tab ${activeTab === tab.id ? "activeTab" : ""}`} onClick={() => setActiveTab(tab.id)} key={tab.id}>
-                                            <span>{tab.name}</span>
-                                        </div>
+                                    achievements.map((item) =>
+                                        activeTab === item.categoryId || activeTab === 0 ?
+                                            <Link href={`/achievement?id=${item.id}`} key={item.id}>
+                                                <motion.div
+                                                    initial={{ opacity: 0, scale: 0.9 }}
+                                                    animate={{ opacity: 1, scale: 1 }}
+                                                    transition={{ type: 'spring', stiffness: 100, damping: 15 }}
+                                                    className="prog-item"
+                                                >
+                                                    <div className="prog-img">
+                                                        <Image src={item.thumbnail} alt="logout" width={100} height={100} />
+                                                        <div className="overlay"></div>
+                                                    </div>
+                                                    <div className="prog-info w-full px-4">
+                                                        <div className="flex items-center justify-between w-full">
+                                                            <span>{item.title}</span>
+                                                            {/* <h3>{item.categoryName}</h3> */}
+                                                        </div>
+                                                        <p>{item.description}</p>
+                                                    </div>
+                                                </motion.div>
+                                            </Link>
+                                            : null
                                     )
                                 }
                             </div>
-                        </div>
-                    </div>
-                    <div className="progs-grid">
-                        {
-                            achievements.map((item) =>
-                                activeTab === item.categoryId || activeTab === 0 ?
-                                    <Link href={`/achievement?id=${item.id}`} key={item.id}>
-                                        <motion.div
-                                            initial={{ opacity: 0, scale: 0.9 }}
-                                            animate={{ opacity: 1, scale: 1 }}
-                                            transition={{ type: 'spring', stiffness: 100, damping: 15 }}
-                                            className="prog-item"
-                                        >
-                                            <div className="prog-img">
-                                                <Image src={item.image} alt="logout" width={100} height={100} />
-                                                <div className="overlay"></div>
-                                            </div>
-                                            <div className="prog-info w-full px-4">
-                                                <div className="flex items-center justify-between w-full">
-                                                    <span>{item.title}</span>
-                                                    <h3>{item.categoryName}</h3>
-                                                </div>
-                                                <p>قمنا بفضل الله بانجاز هذه المشاريع والانجـــازات متوكلين علي الله والحمد لله علي اتمامه علينا النعمه واسباغه الفضل ومنحه الاخلاص</p>
-                                            </div>
-                                        </motion.div>
-                                    </Link>
-                                    : null
-                            )
-                        }
-                    </div>
+                    }
                 </div>
             </section>
         </div>

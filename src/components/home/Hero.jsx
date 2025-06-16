@@ -87,7 +87,7 @@ export default function Hero() { // Defining the main functional component named
                             slider.slider.map((item, index) => (
                                 <SwiperSlide key={index}>
                                     <div className="Hero-Slide rtl">
-                                        <Image src={item} alt="Mazar" width={200} height={200} />
+                                        <Image src={item} alt="Ataa" width={200} height={200} />
                                         <div className="overlay">
                                             <div className="overlay-content">
                                                 <h3>{slider.title}</h3>

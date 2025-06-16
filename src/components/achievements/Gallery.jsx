@@ -16,9 +16,9 @@ export default function Gallery({ data }) {
                     <div className="columns-2 gap-4 sm:columns-3">
                         {data.images.map((img, idx) => (
                             <BlurFade key={idx} delay={0.25 + idx * 0.05} inView>
-                                <a href={img.src} data-fancybox="gallery">
+                                <a href={img} data-fancybox="gallery">
                                     <figure>
-                                        <Image src={img} alt="Mazar" width={200} height={200} className="mb-4 w-full max-h-96   rounded-lg object-cover aspect-auto" />
+                                        <Image src={img} alt="Ataa" width={200} height={200} className="mb-4 w-full max-h-96   rounded-lg object-cover aspect-auto" />
                                     </figure>
                                 </a>
                             </BlurFade>
