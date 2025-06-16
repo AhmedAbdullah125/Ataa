@@ -14,12 +14,17 @@ export default function Gallery({ data }) {
             <div className="container mx-auto">
                 <section id="photos">
                     <div className="columns-2 gap-4 sm:columns-3">
-                        {data.images.map((img, idx) => (
+                        {data.imagesAndVideo.map((img, idx) => (
                             <BlurFade key={idx} delay={0.25 + idx * 0.05} inView>
-                                <a href={img} data-fancybox="gallery">
-                                    <figure>
-                                        <Image src={img} alt="Ataa" width={200} height={200} className="mb-4 w-full max-h-96   rounded-lg object-cover aspect-auto" />
-                                    </figure>
+                                <a href={img.url} data-fancybox="gallery">
+                                    {
+                                        img.type == "image" ?
+                                            <figure>
+                                                <Image src={img.url} alt="Ataa" width={200} height={200} className="mb-4 w-full max-h-96   rounded-3xl object-cover aspect-auto" />
+                                            </figure>
+                                            :
+                                            <video src={img.url} className="mb-4 w-full max-h-96   rounded-3xl object-cover aspect-auto" ></video>
+                                    }
                                 </a>
                             </BlurFade>
                         ))}
