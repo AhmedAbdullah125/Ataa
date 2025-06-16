@@ -61,7 +61,7 @@ export default function Achievements() { // Defining the main functional compone
 
     return (
         <div className="about has-green-title">
-            <GreenPageTitle firstPArt={"إنجـــــ"} secondPart={"ــــاتنا "} thirdPart={" !."} />
+            <GreenPageTitle firstPArt={"إنجـــــ"} secondPart={"ـــازاتنا "} thirdPart={" !."} />
             <section className='section-with-yellow-title'>
                 <div className="text">
                     <h5>أهلا بك في مؤسسة عطاء العالمية</h5>
