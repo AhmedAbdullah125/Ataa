@@ -47,7 +47,7 @@ console.log(achievement);
                 loading ? <Loading /> :
                     <>
                         <Breadcrumb
-                            title={'الانجــــازات'}           // Title of the breadcrumb
+                            title={'أنجازاتــــنا'}           // Title of the breadcrumb
                             titleUrl={'/achievements'}       // URL for the title link (if clickable)
                             subtitle={achievement.title}            // Subtitle (if applicable, empty in this case)
                             subtitleUrl={''}         // URL for the subtitle (if applicable, empty in this case)
