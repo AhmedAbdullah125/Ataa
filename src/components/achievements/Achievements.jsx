@@ -51,8 +51,6 @@ export default function Achievements() { // Defining the main functional compone
 
     }, []);
  
-console.log(achievements);
-
     return (
         <div className="about has-green-title">
             <GreenPageTitle firstPArt={"إنجـــــ"} secondPart={"ـــازاتنا "} thirdPart={" !."} />

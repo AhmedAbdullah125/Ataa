@@ -43,7 +43,6 @@ export default function Blog() { // Defining the main functional component named
         getProgram();
 
     }, [pathId]);
-    console.log(blog);
 
     return (
         <div className="single-blog">
