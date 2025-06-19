@@ -38,7 +38,6 @@ export default function AchievementWraper() { // Defining the main functional co
         getData();
 
     }, []);
-console.log(achievement);
 
     
     return (
