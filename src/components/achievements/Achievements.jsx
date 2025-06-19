@@ -15,7 +15,6 @@ export default function Achievements() { // Defining the main functional compone
 
     const [activeTab, setActiveTab] = useState(0);
     const [tabs, setTabs] = useState([])
-    let [data, setData] = useState([]);
     const [achievements, setAchievements] = useState([]);
     let [loading, setLoading] = useState(true);
 
@@ -51,13 +50,8 @@ export default function Achievements() { // Defining the main functional compone
         getPrograms();
 
     }, []);
-    console.log(data);
-
-    // const achievements = [
-    //     { id: 1, title: "إعمار بيوت الله", categoryName: "البرامج التنموية", categoryId: 1, image: img1 },
-    //     { id: 2, title: "بيوت الله", categoryName: "اعمال", categoryId: 1, image: img2 },
-    //     { id: 3, title: "بيوت الله", categoryName: "البرامج التنموية", categoryId: 1, image: img3 },
-    // ]
+ 
+console.log(achievements);
 
     return (
         <div className="about has-green-title">
