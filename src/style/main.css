@@ -860,6 +860,10 @@ footer .served i {
   }
 }
 
+.ndfHFb-c4YZDc-uoC0bf.ndfHFb-c4YZDc-i5oIFb .ndfHFb-c4YZDc-Wrql6b-AeOLfc-b0t70b {
+  display: none !important;
+}
+
 @media (max-width: 600px) {
   footer .content {
     flex-direction: column;
