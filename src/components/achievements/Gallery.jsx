@@ -8,22 +8,23 @@ import BlurFade from '../ui/blur-fade';
 export default function Gallery({ data }) {
     Fancybox.bind("[data-fancybox]", {
     });
-    let [activeTab, setActiveTab] = useState('all');
+    console.log(data);
+    
     return (
         <section className="gallery" id='gallery'>
             <div className="container mx-auto">
                 <section id="photos">
                     <div className="columns-2 gap-4 sm:columns-3">
-                        {data.imagesAndVideo.map((img, idx) => (
+                        {data.images.map((img, idx) => (
                             <BlurFade key={idx} delay={0.25 + idx * 0.05} inView>
-                                <a href={img.url} data-fancybox="gallery">
+                                <a href={img} data-fancybox="gallery">
                                     {
                                         img.type == "image" ?
                                             <figure>
-                                                <Image src={img.url} alt="Ataa" width={200} height={200} className="mb-4 w-full max-h-96   rounded-3xl object-cover aspect-auto" />
+                                                <Image src={img.src} alt="Ataa" width={200} height={200} className="mb-4 w-full max-h-96   rounded-3xl object-cover aspect-auto" />
                                             </figure>
                                             :
-                                            <video src={img.url} className="mb-4 w-full max-h-96   rounded-3xl object-cover aspect-auto" ></video>
+                                            <video src={img} className="mb-4 w-full max-h-96   rounded-3xl object-cover aspect-auto" ></video>
                                     }
                                 </a>
                             </BlurFade>
