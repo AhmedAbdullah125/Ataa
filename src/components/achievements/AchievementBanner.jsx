@@ -1,6 +1,6 @@
 import React from 'react'; // Importing React to use JSX syntax and create components.
 import Image from 'next/image';
-
+import parse from 'html-react-parser';
 export default function AchievementBanner({ data }) { // Defining the main functional component named 'Footer'.
 
 
@@ -12,7 +12,7 @@ export default function AchievementBanner({ data }) { // Defining the main funct
             <div className="single-cont">
                 <div className="para">
                     <h2>{data.title}</h2>
-                    <p>{data.description}</p>
+                    <p>{parse(data.description)}</p>
                 </div>
             </div>
         </div>

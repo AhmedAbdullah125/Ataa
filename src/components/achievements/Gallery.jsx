@@ -56,7 +56,7 @@ export default function Gallery({ data, googleDriveUrl }) {
                                         <label htmlFor={`video-${index}`} className="absolute top-0 left-0 w-full h-[20%]"></label>
                                         <iframe
                                             src={video.url.split('/view')[0] + '/preview'}
-                                            // width="100"
+                                            width="355"
                                             // height="400"
                                             allow="autoplay"
                                             className="w-full h-96 rounded-3xl"
